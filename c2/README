@@ -1,0 +1,3 @@
+./s_bolsaGeo
+./c_bolsaGeo localhost 1 < servidor.in
+./c_bolsaGeo localhost 2 < servidor.in
