@@ -8,17 +8,11 @@ int nclientes = 0;
 int ctpecas = 0;
 char pecas[2048];
 
-int** estoque;
-
-void alloc_estoque(int** addr){
-     
-}
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 char **func0_1_svc(void *a, struct svc_req *req) {
 	static char msg[256];
 	static char *p;
-
 
 	printf("FUNC0 (sem parâmetros)\n");
 	strcpy(msg, "Hello Func0!");
@@ -71,6 +65,10 @@ int *sclientes_1_svc(int *a, struct svc_req *req) {
 
      nclientes = *a;
      return (&ret);
+}
+
+int solicitapeca_1_svc(char *a,int *b,struct svc_req *req){
+     
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

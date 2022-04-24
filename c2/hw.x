@@ -3,11 +3,6 @@ struct param {
 	int arg2;
 };
 
-struct esteira {
-	int arg1;
-	int arg2;
-};
-
 program PROG {
 	version VERS {
 		string func0(void)    = 1;
@@ -17,6 +12,7 @@ program PROG {
 		int    sclientes(int) = 5;
 		int    specas(char)   = 6;
 		int    sclientes(char)   = 7;
-		void   endclient(void)= ;
+		int    solicitapeca(char,int) = 8;
+		void   endclient(void)= 9;
 	} = 1;
 } = 0x30009999;

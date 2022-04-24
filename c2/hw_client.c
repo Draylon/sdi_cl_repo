@@ -76,19 +76,11 @@ int setServer(CLIENT *loc_cl, char *host) {
 					 printf ("ERRO\n");
 					 return 1;
 				}
-	
 	for(int i=0;i < nesteira;i++){
-		if (!fscanf(stdin, "%s", &esteira)) {
+		if (!fscanf(stdin, "%s", &descarte)) {
 							printf ("ERRO\n");
 							return 1;
 					 }
-		struct param esteira1 = parse_esteira(esteira);
-		 // Set esteira no servidor
-		 reti = sesteira_1(&esteira1, loc_cl);
-		 if (reti == NULL) {
-				 clnt_perror(loc_cl,host);
-				 exit(1);
-		 }
 	}
 
 	// linha 7 da config
@@ -98,14 +90,33 @@ int setServer(CLIENT *loc_cl, char *host) {
 				}
 	
 	// linha 8 da config
-	
+	if (!fscanf(stdin, "%s %s", descarte, descarte)) {
+					 printf ("ERRO\n");
+					 return 1;
+				}
+	for(int i=0;i < nprat;i++){
+		if (!fscanf(stdin, "%s", descarte)) {
+							printf ("ERRO\n");
+							return 1;
+					 }
+	}
+	// linha 9 da config
+	if (!fscanf(stdin, '\0', descarte)) {
+					 printf ("ERRO\n");
+					 return 1;
+				}
 
 	// continuar a leitura do arquivo e configuração
   // ...
 	// TODO
-
-
 	return 0;
+}
+
+void skip_buffer(){
+	char descarte[256];
+	for(int i=0;i < 10;i++){
+		if(!fscanf(stdin,"%s",descarte));
+	}
 }
 
 
@@ -157,11 +168,24 @@ int main (int argc, char *argv[]) {
 
 	if (atoi(argv[2]) == 1) {
 		setServer(cl,argv[1]);
+	}else{
+		skip_buffer();
 	}
 
-	// ...
-	// continuar o código do problema.
-	// TODO
+	char string[256];
+	int user_id;
+	char peca_id[10];
+	int peca_qtd;
+	while(true){
+		if (!fscanf(stdin, "pCli%i = %s", &user_id, user_peca)) {
+			if(user_id == atoi(argv[2])){
+				if (!fscanf(stdin, "QtdCli%i = %i", &user_id, &peca_qtd)) {
+					
+				}
+			}
+		}
+	}
+	
 
 
 	printf ("##  Cliente %d  ##\n",atoi(argv[2]));
