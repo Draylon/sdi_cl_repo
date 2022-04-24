@@ -112,7 +112,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 	}
 
 	// linha 9 da config
-	if (!fscanf(stdin, '\0', descarte)) {
+	if (!fscanf(stdin, '\0')) {
 					 printf ("ERRO\n");
 					 return 1;
 				}
@@ -164,6 +164,8 @@ int main (int argc, char *argv[]) {
 	// Estrutura RPC de comunicação
 	CLIENT *cl;
 
+	char descarte[256]; // leituras p/ descarte
+
 	// Verificação dos parâmetros oriundos da console
 	if (argc != 3) {
 		printf("ERRO: ./client <hostname> <nClient>\n");
@@ -196,12 +198,12 @@ int main (int argc, char *argv[]) {
 	char peca_id;
 	int peca_qtd;
 	struct peca_req *preq = malloc(sizeof(peca_req));
-	while(true){
+	while(1==1){
 		if (!fscanf(stdin, "pCli%i = %c", &user_id, &peca_id)) {
 			if(user_id == atoi(argv[2])){
 				if (!fscanf(stdin, "QtdCli%i = %i", &user_id, &peca_qtd)) {
 					preq->id=peca_id;
-					preq->peca_qtd;
+					preq->qt=peca_qtd;
 					solicitapeca_1(preq);
 					break;
 				}
