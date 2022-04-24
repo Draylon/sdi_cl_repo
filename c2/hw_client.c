@@ -12,6 +12,10 @@ int setServer(CLIENT *loc_cl, char *host) {
 	char descarte[256]; // leituras p/ descarte
 	int descarte_n; // leituras p/ descarte
 	char peca;
+
+	int nprat;
+	int nest;
+	
 	int nc=0;           // número de clientes
 	int np=0;           // número de pecas
 	// ... demais variáveis p/ leitura do arquivo de conf.
@@ -55,7 +59,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 					 return 1;
 				}
 	for (int i=0; i < np; i++) {
-		 if (!fscanf(stdin, "%c %c", &descarte[0], &peca)) {
+		 if (!fscanf(stdin, "%c%c", &descarte[0], &peca)) {
 							printf ("ERRO\n");
 							return 1;
 					 }
@@ -68,7 +72,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 	}
 
 	// linha 5 da config
-	if (!fscanf(stdin, "%s %s %i", descarte, descarte, &descarte_n)) {
+	if (!fscanf(stdin, "%s %s %i", descarte, descarte, &nest)) {
 						printf ("ERRO\n");
 						return 1;
 				}
@@ -78,18 +82,22 @@ int setServer(CLIENT *loc_cl, char *host) {
 					 printf ("ERRO\n");
 					 return 1;
 				}
-	for(int i=0;i < nesteira;i++){
-		if (!fscanf(stdin, "%s", &descarte)) {
-							printf ("ERRO\n");
-							return 1;
-					 }
+	for (int i=0; i < nest; i++) {
+		if (!fscanf(stdin, " %s", descarte)) {
+			printf ("ERRO\n");
+			return 1;
+		}
 	}
+	// if (!fscanf(stdin, "%s", &descarte)) {
+	// 	printf ("ERRO\n");
+	// 	return 1;
+	// }
 
 	// linha 7 da config
-	if (!fscanf(stdin, "%s %s %i", descarte, descarte, &descarte_n)) {
-						printf ("ERRO\n");
-						return 1;
-				}
+	if (!fscanf(stdin, "%s %s %i", descarte, descarte, &nprat)) {
+			printf ("ERRO\n");
+			return 1;
+	}
 	
 	// linha 8 da config
 	if (!fscanf(stdin, "%s %s", descarte, descarte)) {
@@ -117,7 +125,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 
 void skip_buffer(){
 	char descarte[256];
-	for(int i=0;i < 10;i++){
+	for(int i=0;i < 9;i++){
 		if(!fscanf(stdin,"%s",descarte));
 	}
 }
@@ -176,6 +184,12 @@ int main (int argc, char *argv[]) {
 	}else{
 		skip_buffer();
 	}
+
+	// Linha 10 do arquivo
+	if (!fscanf(stdin, "%s %s %s", descarte, descarte, descarte)) {
+						printf ("ERRO\n");
+						return 1;
+				}
 
 	char string[256];
 	int user_id;
