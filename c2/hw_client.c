@@ -60,7 +60,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 							return 1;
 					 }
 		 // Set peca no servidor
-		 reti = specas_1(&peca, loc_cl);
+		 reti = speca_1(&peca, loc_cl);
 		 if (reti == NULL) {
 				 clnt_perror(loc_cl,host);
 				 exit(1);
