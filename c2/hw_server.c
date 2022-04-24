@@ -5,8 +5,10 @@
 #include "hw.h"
 
 int nclientes = 0;
-int ctpecas = 0;
-char pecas[2048];
+int npecas = 0;
+int np_ct = 0;
+//char pecas[2048];
+char *pecas;
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 char **func0_1_svc(void *a, struct svc_req *req) {
@@ -23,9 +25,7 @@ char **func0_1_svc(void *a, struct svc_req *req) {
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 int *func1_1_svc(char **a, struct svc_req *req) {
     static int ret = 1;
-
     printf ("FUNC1 (%s)\n", *a);
-
     return (&ret);
 }
 
@@ -50,10 +50,20 @@ int *func3_1_svc(struct param *a, struct svc_req *req) {
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 // Inclui uma peça no estoque
-int *specas_1_svc(char *a, struct svc_req *req) {
+int *specas_1_svc(int *a, struct svc_req *req) {
      static int ret = 0;
 
-     pecas[ctpecas] = *a;
+     npecas = *a;
+     return (&ret);
+}
+
+int *speca_1_svc(char *a, struct svc_req *req) {
+     static int ret = 0;
+
+     pecas[np_ct] = *a;
+     np_ct++;
+
+     pecas = malloc(sizeof(char)*np_ct);
      return (&ret);
 }
 
@@ -61,7 +71,6 @@ int *specas_1_svc(char *a, struct svc_req *req) {
 // Configura o número total de clientes
 int *sclientes_1_svc(int *a, struct svc_req *req) {
      static int ret = 10;
-
      nclientes = *a;
      return (&ret);
 }
@@ -69,20 +78,16 @@ int *sclientes_1_svc(int *a, struct svc_req *req) {
 int solicitapeca_1_svc(struct peca_req *r,struct svc_req *req){
      r->id;
      pecareq->qt;
-
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 // Cliente foi atendido com sucesso
 void *endclient_1_svc(void *a, struct svc_req *req) {
-
-		 if (--nclientes == 0) {
-		     printf ("##  Servidor  ##\n");
-				 printf ("Status: finalizado\n");
-				 printf ("estoque: A A B B E H H H H J\n");
-				 printf ("entregas: B B J \n");
-				 exit(0);
-		 }
-
-
+     if (--nclientes == 0) {
+     printf ("##  Servidor  ##\n");
+               printf ("Status: finalizado\n");
+               printf ("estoque: A A B B E H H H H J\n");
+               printf ("entregas: B B J \n");
+               exit(0);
+     }
 }

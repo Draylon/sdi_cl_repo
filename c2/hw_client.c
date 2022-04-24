@@ -39,7 +39,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 				}
 
 	
-	// Set nclientes no servidor
+	// Set npecas no servidor
 	reti = specas_1(&np, loc_cl);
 	if (reti == NULL) {
 			clnt_perror(loc_cl,host);
@@ -178,19 +178,20 @@ int main (int argc, char *argv[]) {
 	int user_id;
 	char peca_id;
 	int peca_qtd;
-	struct peca_req preq;
+	struct peca_req *preq = malloc(sizeof(peca_req));
 	while(true){
 		if (!fscanf(stdin, "pCli%i = %c", &user_id, &peca_id)) {
 			if(user_id == atoi(argv[2])){
 				if (!fscanf(stdin, "QtdCli%i = %i", &user_id, &peca_qtd)) {
-					preq.id=peca_id;
-					preq.peca_qtd;
+					preq->id=peca_id;
+					preq->peca_qtd;
 					solicitapeca_1(preq);
+					break;
 				}
 			}
 		}
 	}
-	
+	free(preq);
 
 
 	printf ("##  Cliente %d  ##\n",atoi(argv[2]));

@@ -15,8 +15,8 @@ program PROG {
 		int    func2(int)     = 3;
 		int    func3(param)   = 4;
 		int    sclientes(int) = 5;
-		int    specas(char)   = 6;
-		int    sclientes(char)   = 7;
+		int    specas(int)   = 6;
+		int    sclientes(int)   = 7;
 		int    solicitapeca(param) = 8;
 		void   endclient(void)= 9;
 	} = 1;
