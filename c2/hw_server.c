@@ -52,7 +52,6 @@ int *func3_1_svc(struct param *a, struct svc_req *req) {
 // Inclui uma peça no estoque
 int *specas_1_svc(int *a, struct svc_req *req) {
      static int ret = 0;
-
      npecas = *a;
      return (&ret);
 }
@@ -61,10 +60,8 @@ int *specas_1_svc(int *a, struct svc_req *req) {
 // Define quantidade de peças no estoque
 int *speca_1_svc(char *a, struct svc_req *req) {
      static int ret = 0;
-
      pecas[np_ct] = *a;
      np_ct++;
-
      pecas = malloc(sizeof(char)*np_ct);
      return (&ret);
 }

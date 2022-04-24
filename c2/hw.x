@@ -15,9 +15,10 @@ program PROG {
 		int    func2(int)     = 3;
 		int    func3(param)   = 4;
 		int    sclientes(int) = 5;
-		int    specas(int)   = 6;
-		int    sclientes(int)   = 7;
-		int    solicitapeca(param) = 8;
-		void   endclient(void)= 9;
+		int    speca(char)   = 6;
+		int    specas(int)   = 7;
+		int    sclientes(int)   = 8;
+		int    solicitapeca(param) = 9;
+		void   endclient(void)= 10;
 	} = 1;
 } = 0x30009999;
