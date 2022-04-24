@@ -146,6 +146,8 @@ struct param parse_esteira(char* str){
 	return a;
 }
 
+struct peca_req pecareq;
+
 
 int main (int argc, char *argv[]) {
 	// Estrutura RPC de comunicação

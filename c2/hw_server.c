@@ -8,7 +8,6 @@ int nclientes = 0;
 int ctpecas = 0;
 char pecas[2048];
 
-
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 char **func0_1_svc(void *a, struct svc_req *req) {
 	static char msg[256];
@@ -67,8 +66,10 @@ int *sclientes_1_svc(int *a, struct svc_req *req) {
      return (&ret);
 }
 
-int solicitapeca_1_svc(char *a,int *b,struct svc_req *req){
-     
+int solicitapeca_1_svc(struct peca_req *r,struct svc_req *req){
+     r->id;
+     pecareq->qt;
+
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
