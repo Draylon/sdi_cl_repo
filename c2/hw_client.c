@@ -176,13 +176,16 @@ int main (int argc, char *argv[]) {
 
 	char string[256];
 	int user_id;
-	char peca_id[10];
+	char peca_id;
 	int peca_qtd;
+	struct peca_req preq;
 	while(true){
-		if (!fscanf(stdin, "pCli%i = %s", &user_id, user_peca)) {
+		if (!fscanf(stdin, "pCli%i = %c", &user_id, &peca_id)) {
 			if(user_id == atoi(argv[2])){
 				if (!fscanf(stdin, "QtdCli%i = %i", &user_id, &peca_qtd)) {
-					
+					preq.id=peca_id;
+					preq.peca_qtd;
+					solicitapeca_1(preq);
 				}
 			}
 		}
