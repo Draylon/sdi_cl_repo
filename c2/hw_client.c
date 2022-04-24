@@ -204,7 +204,7 @@ int main (int argc, char *argv[]) {
 				if (!fscanf(stdin, "QtdCli%i = %i", &user_id, &peca_qtd)) {
 					preq->id=peca_id;
 					preq->qt=peca_qtd;
-					solicitapeca_1(preq);
+					solicitapeca_1(preq,cl);
 					break;
 				}
 			}
