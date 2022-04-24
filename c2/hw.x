@@ -17,8 +17,7 @@ program PROG {
 		int    sclientes(int) = 5;
 		int    speca(char)   = 6;
 		int    specas(int)   = 7;
-		int    sclientes(int)   = 8;
-		int    solicitapeca(param) = 9;
-		void   endclient(void)= 10;
+		int    solicitapeca(param) = 8;
+		void   endclient(void)= 9;
 	} = 1;
 } = 0x30009999;
