@@ -57,6 +57,8 @@ int *specas_1_svc(int *a, struct svc_req *req) {
      return (&ret);
 }
 
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+// Define quantidade de peças no estoque
 int *speca_1_svc(char *a, struct svc_req *req) {
      static int ret = 0;
 

@@ -10,6 +10,8 @@ int setServer(CLIENT *loc_cl, char *host) {
 
 	// Lendo arquivo stdin
 	char descarte[256]; // leituras p/ descarte
+	int descarte_n; // leituras p/ descarte
+	char peca;
 	int nc=0;           // número de clientes
 	int np=0;           // número de pecas
 	// ... demais variáveis p/ leitura do arquivo de conf.
@@ -66,7 +68,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 	}
 
 	// linha 5 da config
-	if (!fscanf(stdin, "%s %s %i", descarte, descarte, &nesteira)) {
+	if (!fscanf(stdin, "%s %s %i", descarte, descarte, &descarte_n)) {
 						printf ("ERRO\n");
 						return 1;
 				}
@@ -84,7 +86,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 	}
 
 	// linha 7 da config
-	if (!fscanf(stdin, "%s %s %i", descarte, descarte, &nprat)) {
+	if (!fscanf(stdin, "%s %s %i", descarte, descarte, &descarte_n)) {
 						printf ("ERRO\n");
 						return 1;
 				}
@@ -100,6 +102,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 							return 1;
 					 }
 	}
+
 	// linha 9 da config
 	if (!fscanf(stdin, '\0', descarte)) {
 					 printf ("ERRO\n");
