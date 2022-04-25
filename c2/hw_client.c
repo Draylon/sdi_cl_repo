@@ -128,6 +128,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 }
 
 void skip_buffer(){
+	printf("skip\n");
 	char descarte[256];
 	for(int i=0;i < 500;i++){
 		if(!fscanf(stdin,"%s",descarte));
