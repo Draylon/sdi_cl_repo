@@ -92,7 +92,7 @@ int *solicitapeca_1_svc(struct peca_req *pecareq,struct svc_req *req){
      for(int q1 = 0;q1 < qt;q1++){
           for(int i=0;i<npecas;i++){
                if(pecas[i] == id){
-                    pecas[i] = (char)0;
+                    pecas[i] = (char)32;
                     
                     entregas[nentr] = id;
                     nentr++;
@@ -128,12 +128,14 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
 
                printf ("estoque: ");
                for (int i = 0; i < npecas; ++i) {
-                    printf("%c ", pecas[i]);
+                    if((int)pecas[i] != 32)
+                         printf("%c ", pecas[i]);
                }
                
                printf ("entregas: ");
                for (int i = 0; i < nentr; ++i) {
-                    printf("%c ", entregas[i]);
+                    if((int)entregas[i] != 32)
+                         printf("%c ", entregas[i]);
                }
 
                printf("\n###########\n");
