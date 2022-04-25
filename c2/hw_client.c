@@ -211,7 +211,7 @@ int main (int argc, char *argv[]) {
 	int user_id;
 	char *user_id_c;
 	char peca_id;
-	char *peca_id_s;
+	char peca_id_s[256];
 	int peca_qtd;
 	struct peca_req *preq = malloc(sizeof(peca_req));
 	int ex=0;
