@@ -7,8 +7,10 @@
 int nclientes = 0;
 int npecas = 0;
 int np_ct = 0;
-//char pecas[2048];
 char *pecas;
+
+int nentr;
+char *entregas;
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 char **func0_1_svc(void *a, struct svc_req *req) {
@@ -49,20 +51,24 @@ int *func3_1_svc(struct param *a, struct svc_req *req) {
 
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-// Inclui uma peça no estoque
+// Define quantidade de peças no estoque
 int *specas_1_svc(int *a, struct svc_req *req) {
      static int ret = 0;
      npecas = *a;
+     
+     pecas = malloc(sizeof(char)*npecas);
+     entregas = malloc(sizeof(char)*npecas);
+     if(pecas == NULL) ret=1;
+     
      return (&ret);
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-// Define quantidade de peças no estoque
+// Inclui uma peça no estoque
 int *speca_1_svc(char *a, struct svc_req *req) {
      static int ret = 0;
      pecas[np_ct] = *a;
      np_ct++;
-     pecas = malloc(sizeof(char)*np_ct);
      return (&ret);
 }
 
@@ -74,9 +80,26 @@ int *sclientes_1_svc(int *a, struct svc_req *req) {
      return (&ret);
 }
 
-int solicitapeca_1_svc(struct peca_req *r,struct svc_req *req){
-     r->id;
-     pecareq->qt;
+void remove_peca(char id,int qt){
+     for(int q1 = 0;q1 < qt;q1++){
+          for(int i=0;i<npecas;i++){
+               if(pecas[i] == id){
+                    pecas[i] = (char)0;
+                    
+                    entregas[nentr] = id;
+                    nentr++;
+               }
+          }
+     }
+}
+
+int *solicitapeca_1_svc(struct peca_req *pecareq,struct svc_req *req){
+     static int ret = 10;
+     // pecareq->id;
+     // pecareq->qt;
+     remove_peca(peca_req->id,pecareq->qt);
+
+     return (&ret);
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
