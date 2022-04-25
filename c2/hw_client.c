@@ -208,7 +208,7 @@ int main (int argc, char *argv[]) {
 	int ex=0;
 	while(ex<=10){
 		ex++;
-		printf("Client?\n");
+		printf("Client?%i\n",ex);
 		if (!fscanf(stdin, '\0')) {
 			break;
 		}
