@@ -209,6 +209,10 @@ int main (int argc, char *argv[]) {
 	while(ex<=10){
 		ex++;
 		printf("Client?\n");
+		if (!fscanf(stdin, '\0')) {
+			break;
+		}
+		printf("Client?\n");
 		if (!fscanf(stdin, "pCli%i = %c", &user_id, &peca_id)) {
 			if(user_id == atoi(argv[2])){
 				if (!fscanf(stdin, "QtdCli%i = %i", &user_id, &peca_qtd)) {
