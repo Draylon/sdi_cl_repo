@@ -91,8 +91,8 @@ int *solicitapeca_1_svc(struct peca_req *pecareq,struct svc_req *req){
      int qt = pecareq->qt;
      for(int q1 = 0;q1 < qt;q1++){
           for(int i=0;i<npecas;i++){
-               printf("req:%c %i\n",id,qt);
                if(pecas[i] == id){
+                    printf("req:%c %i\n",id,qt);
                     pecas[i] = (char)32;
                     
                     entregas[nentr] = id;
