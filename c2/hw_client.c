@@ -134,7 +134,7 @@ void skip_buffer(){
 	//char descarte[256];
 	for(int i=0;i < 500;i++){
 		if(!fscanf(stdin,"%s",descarte));
-		if(0 == strcmp("##",descarte)){
+		if(0 == strcmp("###",descarte)){
 			break;
 		}
 	}
