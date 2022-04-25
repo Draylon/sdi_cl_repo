@@ -1,14 +1,14 @@
 ## Servidor ##
 NClientes = 2
-NPecas = 13
-pecas = B E A J H B B J H H E A H
-NEsteira = 3
-esteiras = p1Ep2 p2Ep3 p3Ep4
-NPrateleira = 4
-prateleiras = p1 p2 p3 p4
+NPecas = 5
+pecas = A B B C D
+NEsteira = 6
+esteiras = p1Ep2 p2Ep3 p3Ep4 p4Ep5 p5Ep6 p6Ep7
+NPrateleira = 7
+prateleiras = p1 p2 p3 p4 p5 p6 p7
 
 ## Clientes ##
-pCli1 = B
+pCli1 = A
 QtdCli1 = 1
-pCli2 = J
+pCli2 = B
 QtdCli2 = 2
