@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <rpc/rpc.h>
+#include <string>
 
 // Interface gerada pelo RPCGen a partir da IDL (hw.x) especificada
 #include "hw.h"
@@ -202,22 +203,31 @@ int main (int argc, char *argv[]) {
 
 	char string[256];
 	int user_id;
+	char user_id_c[256];
 	char peca_id;
 	int peca_qtd;
 	struct peca_req *preq = malloc(sizeof(peca_req));
 	int ex=0;
-	while(ex<=10){
+	while(ex<=20){
 		ex++;
-		printf("Client?%i\n",ex);
-		fscanf(stdin, "%s", descarte);
-		printf("%s\n",descarte);
+		// printf("Client?%i\n",ex);
+		// fscanf(stdin, "%s", descarte);
+		// printf("%s\n",descarte);
 		
-		if (!fscanf(stdin, "pCli%i = %c", &user_id, &peca_id)) {
+		if (!fscanf(stdin, "%s %s %s", string, descarte, &peca_id)) {
+			user_id_c = strtok(string,"pCli");
+			user_id = atoi(user_id_c);
 			if(user_id == atoi(argv[2])){
-				if (!fscanf(stdin, "QtdCli%i = %i", &user_id, &peca_qtd)) {
-					preq->id=peca_id;
-					preq->qt=peca_qtd;
-					solicitapeca_1(preq,cl);
+				if (!fscanf(stdin, "%s %s %s",string, descarte, &peca_qtd)) {
+					
+					user_id_c = strtok(string,"QtdCli");
+					user_id = atoi(user_id_c);
+
+					if(user_id == atoi(argv[2])){
+						preq->id=peca_id;
+						preq->qt=peca_qtd;
+						solicitapeca_1(preq,cl);
+					}
 					break;
 				}
 			}
