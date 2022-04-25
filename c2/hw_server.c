@@ -100,6 +100,7 @@ int *solicitapeca_1_svc(struct peca_req *pecareq,struct svc_req *req){
                }
           }
      }
+     printf("qt: %i\n",nentr);
      return (&ret);
 }
 
