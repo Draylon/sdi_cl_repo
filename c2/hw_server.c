@@ -109,8 +109,8 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
                
                for (int step = 0; step < npecas - 1; ++step) {
                     for (int i = 0; i < npecas - step - 1; ++i) {
-                         if (pecas[i] > pecas[i + 1]) {
-                              int temp = pecas[i];
+                         if ((int)pecas[i] > (int)pecas[i + 1]) {
+                              char temp = pecas[i];
                               pecas[i] = pecas[i + 1];
                               pecas[i + 1] = temp;
                          }
@@ -118,8 +118,8 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
                }
                for (int step = 0; step < nentr - 1; ++step) {
                     for (int i = 0; i < nentr - step - 1; ++i) {
-                         if (entregas[i] > entregas[i + 1]) {
-                              int temp = pecas[i];
+                         if ((int)entregas[i] > (int)entregas[i + 1]) {
+                              char temp = pecas[i];
                               entregas[i] = entregas[i + 1];
                               entregas[i + 1] = temp;
                          }
@@ -128,12 +128,12 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
 
                printf ("estoque: ");
                for (int i = 0; i < npecas; ++i) {
-               printf("%i ", pecas[i]);
+                    printf("%i ", pecas[i]);
                }
                
                printf ("entregas: ");
                for (int i = 0; i < nentr; ++i) {
-               printf("%i ", entregas[i]);
+                    printf("%i ", entregas[i]);
                }
 
                printf("###########\n");
