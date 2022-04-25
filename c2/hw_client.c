@@ -118,16 +118,26 @@ int setServer(CLIENT *loc_cl, char *host) {
 			return 1;
 	}
 
-	// continuar a leitura do arquivo e configuração
-  // ...
-	// TODO
+	// Linha 10 do arquivo
+	if (!fscanf(stdin, "%s %s", descarte, descarte)) {
+						printf ("ERRO\n");
+						return 1;
+				}
+
 	return 0;
 }
 
 void skip_buffer(){
 	char descarte[256];
-	for(int i=0;i < 7;i++){
+	for(int i=0;i < 500;i++){
 		if(!fscanf(stdin,"%s",descarte));
+		if(0 == strcmp("Clientes",descarte)){
+			break;
+		}
+	}
+	if (!fscanf(stdin, "%s", descarte)) {
+		printf ("ERRO\n");
+		return 1;
 	}
 }
 
@@ -193,13 +203,6 @@ int main (int argc, char *argv[]) {
 		skip_buffer();
 	}
 	
-	
-	
-	// Linha 10 do arquivo
-	if (!fscanf(stdin, "%s %s", descarte, descarte)) {
-						printf ("ERRO\n");
-						return 1;
-				}
 
 	char string[256];
 	int user_id;
