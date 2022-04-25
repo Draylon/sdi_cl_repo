@@ -196,7 +196,7 @@ int main (int argc, char *argv[]) {
 	
 	
 	// Linha 10 do arquivo
-	if (!fscanf(stdin, "%s %s %s", descarte, descarte, descarte)) {
+	if (!fscanf(stdin, "%s %s", descarte, descarte)) {
 						printf ("ERRO\n");
 						return 1;
 				}
@@ -214,7 +214,6 @@ int main (int argc, char *argv[]) {
 		// fscanf(stdin, "%s", descarte);
 		// printf("%s\n",descarte);
 		
-		printf("antes:%s\n", descarte);
 		fscanf(stdin, "%s %s %c", string, descarte, &peca_id);
 
 		printf("%s %s %c\n",string, descarte, &peca_id);
