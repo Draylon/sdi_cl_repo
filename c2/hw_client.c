@@ -211,6 +211,7 @@ int main (int argc, char *argv[]) {
 	int user_id;
 	char *user_id_c;
 	char peca_id;
+	char *peca_id_s;
 	int peca_qtd;
 	struct peca_req *preq = malloc(sizeof(peca_req));
 	int ex=0;
@@ -220,9 +221,9 @@ int main (int argc, char *argv[]) {
 		// fscanf(stdin, "%s", descarte);
 		// printf("%s\n",descarte);
 		
-		fscanf(stdin, "%s %s %c %c", string, descarte, peca_id);
+		fscanf(stdin, "%s %s %s", string, descarte, peca_id_s);
 
-		printf("|%s| |%s| |%c|\n",string, descarte, peca_id);
+		printf("|%s| |%s| |%s|\n",string, descarte, peca_id_s);
 		user_id_c = strtok(string,"pCli");
 		user_id = atoi(user_id_c);
 		if(user_id == atoi(argv[2])){
