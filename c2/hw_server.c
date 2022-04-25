@@ -89,9 +89,11 @@ int *solicitapeca_1_svc(struct peca_req *pecareq,struct svc_req *req){
      // pecareq->qt;
      char id = pecareq->id;
      int qt = pecareq->qt;
-     for(int q1 = 0;q1 < qt;q1++){
-          for(int i=0;i<npecas;i++){
+     int flag1=0;
+     for(int i=0;i<npecas;i++){
+          for(int q1 = 0;q1 < qt;q1++){
                if(pecas[i] == id){
+                    flag1=1;
                     printf("req:%c %i\n",id,qt);
                     pecas[i] = (char)32;
                     
@@ -99,6 +101,7 @@ int *solicitapeca_1_svc(struct peca_req *pecareq,struct svc_req *req){
                     nentr++;
                }
           }
+          if(flag1==1) break;
      }
      printf("qt: %i\n",nentr);
      return (&ret);
