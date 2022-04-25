@@ -224,24 +224,23 @@ int main (int argc, char *argv[]) {
 		
 		fscanf(stdin, "%s %s %s", string, descarte, peca_id_s);
 		peca_id = peca_id_s[0];
-		printf("|%s| |%s| |%c|\n",string, descarte, peca_id);
+		//printf("|%s| |%s| |%c|\n",string, descarte, peca_id);
 		user_id_c = strtok(string,"pCli");
 		user_id = atoi(user_id_c);
-		printf("%i == %i : %i\n",user_id,atoi(argv[2]),(user_id == atoi(argv[2])));
+		//printf("%i == %i : %i\n",user_id,atoi(argv[2]),(user_id == atoi(argv[2])));
 		if(user_id == atoi(argv[2])){
-			if (!fscanf(stdin, "%s %s %s",string, descarte, peca_qtd_s)) {
-				peca_qtd = atoi(peca_qtd_s);
-				user_id_c = strtok(string,"QtdCli");
-				user_id = atoi(user_id_c);
+			fscanf(stdin, "%s %s %s",string, descarte, peca_qtd_s));
+			peca_qtd = atoi(peca_qtd_s);
+			user_id_c = strtok(string,"QtdCli");
+			user_id = atoi(user_id_c);
 
-				if(user_id == atoi(argv[2])){
-					preq->id=peca_id;
-					preq->qt=peca_qtd;
-					printf("solicita:%c %i\n",preq->id,preq->qt);
-					solicitapeca_1(preq,cl);
-				}
-				break;
+			if(user_id == atoi(argv[2])){
+				preq->id=peca_id;
+				preq->qt=peca_qtd;
+				printf("solicita:%c %i\n",preq->id,preq->qt);
+				solicitapeca_1(preq,cl);
 			}
+			break;
 		}
 	}
 	free(preq);
