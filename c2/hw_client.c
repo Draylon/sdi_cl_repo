@@ -213,6 +213,7 @@ int main (int argc, char *argv[]) {
 	char peca_id;
 	char peca_id_s[256];
 	int peca_qtd;
+	int peca_qtd_s[256];
 	struct peca_req *preq = malloc(sizeof(peca_req));
 	int ex=0;
 	while(ex<=20){
@@ -227,8 +228,8 @@ int main (int argc, char *argv[]) {
 		user_id_c = strtok(string,"pCli");
 		user_id = atoi(user_id_c);
 		if(user_id == atoi(argv[2])){
-			if (!fscanf(stdin, "%s %s %i",string, descarte, &peca_qtd)) {
-				
+			if (!fscanf(stdin, "%s %s %s",string, descarte, peca_qtd_s)) {
+				peca_qtd = atoi(peca_qtd_s);
 				user_id_c = strtok(string,"QtdCli");
 				user_id = atoi(user_id_c);
 
