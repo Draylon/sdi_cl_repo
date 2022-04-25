@@ -192,7 +192,7 @@ int main (int argc, char *argv[]) {
 		skip_buffer();
 	}
 	
-	printf("Client?\n");
+	
 	
 	// Linha 10 do arquivo
 	if (!fscanf(stdin, "%s %s %s", descarte, descarte, descarte)) {
@@ -206,6 +206,7 @@ int main (int argc, char *argv[]) {
 	int peca_qtd;
 	struct peca_req *preq = malloc(sizeof(peca_req));
 	while(1==1){
+		printf("Client?\n");
 		if (!fscanf(stdin, "pCli%i = %c", &user_id, &peca_id)) {
 			if(user_id == atoi(argv[2])){
 				if (!fscanf(stdin, "QtdCli%i = %i", &user_id, &peca_qtd)) {
