@@ -5,12 +5,14 @@
 // Interface gerada pelo RPCGen a partir da IDL (hw.x) especificada
 #include "hw.h"
 
+char descarte[256];
+
 // O client 1 "configura" o servidor de acordo com o arquivo servidor.in
 int setServer(CLIENT *loc_cl, char *host) {
 	int   *reti = NULL;
 
 	// Lendo arquivo stdin
-	char descarte[256]; // leituras p/ descarte
+	 // leituras p/ descarte
 	int descarte_n; // leituras p/ descarte
 	char peca;
 
@@ -129,7 +131,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 }
 
 void skip_buffer(){
-	char descarte[256];
+	//char descarte[256];
 	for(int i=0;i < 500;i++){
 		if(!fscanf(stdin,"%s",descarte));
 		if(0 == strcmp("##",descarte)){
@@ -178,7 +180,7 @@ int main (int argc, char *argv[]) {
 
 	
 
-	char descarte[256]; // leituras p/ descarte
+	//char descarte[256]; // leituras p/ descarte
 
 	// Verificação dos parâmetros oriundos da console
 	if (argc != 3) {
