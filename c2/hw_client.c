@@ -218,7 +218,7 @@ int main (int argc, char *argv[]) {
 			user_id_c = strtok(string,"pCli");
 			user_id = atoi(user_id_c);
 			if(user_id == atoi(argv[2])){
-				if (!fscanf(stdin, "%s %s %s",string, descarte, &peca_qtd)) {
+				if (!fscanf(stdin, "%s %s %i",string, descarte, &peca_qtd)) {
 					
 					user_id_c = strtok(string,"QtdCli");
 					user_id = atoi(user_id_c);
