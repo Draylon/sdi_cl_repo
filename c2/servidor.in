@@ -1,5 +1,5 @@
 ## Servidor ##
-NClientes = 2
+NClientes = 3
 NPecas = 5
 pecas = A B B C D
 NEsteira = 6
@@ -12,3 +12,5 @@ pCli1 = A
 QtdCli1 = 1
 pCli2 = B
 QtdCli2 = 2
+pCli3 = C
+QtdCli2 = 1
