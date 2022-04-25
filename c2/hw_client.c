@@ -214,6 +214,7 @@ int main (int argc, char *argv[]) {
 		// fscanf(stdin, "%s", descarte);
 		// printf("%s\n",descarte);
 		
+		printf("antes:%s\n", descarte);
 		fscanf(stdin, "%s %s %c", string, descarte, &peca_id);
 
 		printf("%s %s %c\n",string, descarte, &peca_id);
