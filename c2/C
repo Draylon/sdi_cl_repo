@@ -3,7 +3,7 @@ nro_proc=`grep Nro_clientes ambiente.in | cut -d " " -f 2`
 
 make clean > /dev/null
 make > /dev/null
-./s_bolsaGeo
+./s_bolsaGeo &
 for i in `seq 1 $nro_proc`
 do
     pos=`expr $i + 1`;
