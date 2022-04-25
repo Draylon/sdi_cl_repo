@@ -128,12 +128,12 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
 
                printf ("estoque: ");
                for (int i = 0; i < npecas; ++i) {
-                    printf("%i ", pecas[i]);
+                    printf("%c ", pecas[i]);
                }
                
                printf ("entregas: ");
                for (int i = 0; i < nentr; ++i) {
-                    printf("%i ", entregas[i]);
+                    printf("%c ", entregas[i]);
                }
 
                printf("###########\n");
