@@ -138,7 +138,7 @@ void skip_buffer(){
 			break;
 		}
 	}
-	if (!fscanf(stdin, " %s %s", descarte,descarte)) {
+	if (!fscanf(stdin, " %s", descarte,descarte)) {
 		printf ("ERRO\n");
 		return 1;
 	}
