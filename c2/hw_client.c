@@ -140,7 +140,7 @@ void skip_buffer(){
 	}
 	if (!fscanf(stdin, " %s", descarte)) {
 		printf ("ERRO\n");
-		return 1;
+		return;
 	}
 }
 
