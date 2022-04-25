@@ -107,16 +107,16 @@ int setServer(CLIENT *loc_cl, char *host) {
 				}
 	for(int i=0;i < nprat;i++){
 		if (!fscanf(stdin, "%s", descarte)) {
-							printf ("ERRO\n");
-							return 1;
-					 }
+			printf ("ERRO\n");
+			return 1;
+		}
 	}
 
 	// linha 9 da config
-	if (!fscanf(stdin, '\0')) {
-					 printf ("ERRO\n");
-					 return 1;
-				}
+	if (!fscanf(stdin, '%s',descarte)) {
+			printf ("ERRO\n");
+			return 1;
+	}
 
 	// continuar a leitura do arquivo e configuração
   // ...
@@ -203,7 +203,7 @@ int main (int argc, char *argv[]) {
 
 	char string[256];
 	int user_id;
-	char user_id_c[256];
+	char *user_id_c;
 	char peca_id;
 	int peca_qtd;
 	struct peca_req *preq = malloc(sizeof(peca_req));
