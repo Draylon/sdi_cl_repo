@@ -134,7 +134,7 @@ void skip_buffer(){
 		if(0 == strcmp("Clientes",descarte)){
 			break;
 		}
-		printf(".");
+		printf("fin: %s",descarte);
 	}
 	if (!fscanf(stdin, "%s", descarte)) {
 		printf ("ERRO\n");
