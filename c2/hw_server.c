@@ -97,7 +97,7 @@ int *solicitapeca_1_svc(struct peca_req *pecareq,struct svc_req *req){
      static int ret = 10;
      // pecareq->id;
      // pecareq->qt;
-     remove_peca(peca_req->id,pecareq->qt);
+     remove_peca(pecareq->id,pecareq->qt);
 
      return (&ret);
 }
