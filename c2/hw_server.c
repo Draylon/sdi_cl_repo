@@ -9,7 +9,7 @@ int npecas = 0;
 int np_ct = 0;
 char *pecas;
 
-int nentr;
+int nentr=0;
 char *entregas;
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
