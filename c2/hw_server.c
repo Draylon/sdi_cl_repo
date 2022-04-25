@@ -132,7 +132,7 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
                          printf("%c ", pecas[i]);
                }
                
-               printf ("\nentregas: ");
+               printf ("\nentregas%i: ",nentr);
                for (int i = 0; i < nentr; ++i) {
                     if((int)entregas[i] != 32)
                          printf("%c ", entregas[i]);
