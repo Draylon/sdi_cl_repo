@@ -177,7 +177,7 @@ int main (int argc, char *argv[]) {
 	// Conexão com servidor RPCargv[1]
 	cl = clnt_create(argv[1], PROG, VERS, "tcp");
 	
-	printf("Client?\n");
+	
 	
 	if (cl == NULL) {
 		clnt_pcreateerror(argv[1]);
@@ -191,7 +191,9 @@ int main (int argc, char *argv[]) {
 	}else{
 		skip_buffer();
 	}
-
+	
+	printf("Client?\n");
+	
 	// Linha 10 do arquivo
 	if (!fscanf(stdin, "%s %s %s", descarte, descarte, descarte)) {
 						printf ("ERRO\n");
