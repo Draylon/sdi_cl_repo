@@ -209,7 +209,8 @@ int main (int argc, char *argv[]) {
 	while(ex<=10){
 		ex++;
 		printf("Client?%i\n",ex);
-		if (!fscanf(stdin, '\0')) {
+		if (!fscanf(stdin, "%s", descarte)) {
+			printf("%s\n",descarte);
 			break;
 		}
 		if (!fscanf(stdin, "pCli%i = %c", &user_id, &peca_id)) {
