@@ -205,7 +205,9 @@ int main (int argc, char *argv[]) {
 	char peca_id;
 	int peca_qtd;
 	struct peca_req *preq = malloc(sizeof(peca_req));
-	while(1==1){
+	int ex=0;
+	while(ex<=10){
+		ex++;
 		printf("Client?\n");
 		if (!fscanf(stdin, "pCli%i = %c", &user_id, &peca_id)) {
 			if(user_id == atoi(argv[2])){
