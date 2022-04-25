@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <rpc/rpc.h>
-#include <string>
+#include <string.h>
 
 // Interface gerada pelo RPCGen a partir da IDL (hw.x) especificada
 #include "hw.h"
