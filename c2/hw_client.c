@@ -226,6 +226,7 @@ int main (int argc, char *argv[]) {
 					if(user_id == atoi(argv[2])){
 						preq->id=peca_id;
 						preq->qt=peca_qtd;
+						printf("solicita:%c %i\n",preq->id,preq->qt);
 						solicitapeca_1(preq,cl);
 					}
 					break;
