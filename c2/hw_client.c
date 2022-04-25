@@ -113,7 +113,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 	}
 
 	// linha 9 da config
-	if (!fscanf(stdin, '\n',descarte)) {
+	if (!fscanf(stdin, '\n')) {
 			printf ("ERRO\n");
 			return 1;
 	}
