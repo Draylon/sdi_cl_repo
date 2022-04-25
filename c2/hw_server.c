@@ -80,7 +80,15 @@ int *sclientes_1_svc(int *a, struct svc_req *req) {
      return (&ret);
 }
 
-void remove_peca(char id,int qt){
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+// Cliente foi atendido com sucesso
+int *solicitapeca_1_svc(struct peca_req *pecareq,struct svc_req *req){
+     static int ret = 10;
+     // pecareq->id;
+     // pecareq->qt;
+     char id = pecareq->id;
+     int qt = pecareq->qt;
      for(int q1 = 0;q1 < qt;q1++){
           for(int i=0;i<npecas;i++){
                if(pecas[i] == id){
@@ -88,17 +96,7 @@ void remove_peca(char id,int qt){
                     
                     entregas[nentr] = id;
                     nentr++;
-               }
-          }
-     }
-}
-
-int *solicitapeca_1_svc(struct peca_req *pecareq,struct svc_req *req){
-     static int ret = 10;
-     // pecareq->id;
-     // pecareq->qt;
-     remove_peca(pecareq->id,pecareq->qt);
-
+     }}}
      return (&ret);
 }
 
@@ -112,8 +110,4 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
                printf ("entregas: B B J \n");
                exit(0);
      }
-}
-
-int main(){
-     printf("asdasd");
 }
