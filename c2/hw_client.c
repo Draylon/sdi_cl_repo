@@ -164,7 +164,7 @@ int main (int argc, char *argv[]) {
 	// Estrutura RPC de comunicação
 	CLIENT *cl;
 
-	printf("Client?\n");
+	
 
 	char descarte[256]; // leituras p/ descarte
 
@@ -176,6 +176,9 @@ int main (int argc, char *argv[]) {
 
 	// Conexão com servidor RPCargv[1]
 	cl = clnt_create(argv[1], PROG, VERS, "tcp");
+	
+	printf("Client?\n");
+	
 	if (cl == NULL) {
 		clnt_pcreateerror(argv[1]);
 		exit(1);
