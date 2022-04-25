@@ -142,6 +142,8 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
 
                printf("\n###########\n");
                
+               free(pecas);
+               free(entregas);
 
                //printf ("estoque: A A B B E H H H H J\n");
                //printf ("entregas: B B J \n");
