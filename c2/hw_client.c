@@ -215,6 +215,7 @@ int main (int argc, char *argv[]) {
 		// printf("%s\n",descarte);
 		
 		if (!fscanf(stdin, "%s %s %c", string, descarte, &peca_id)) {
+			printf("%s %s %c",string, descarte, &peca_id);
 			user_id_c = strtok(string,"pCli");
 			user_id = atoi(user_id_c);
 			if(user_id == atoi(argv[2])){
