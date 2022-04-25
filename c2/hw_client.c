@@ -229,7 +229,7 @@ int main (int argc, char *argv[]) {
 		user_id = atoi(user_id_c);
 		//printf("%i == %i : %i\n",user_id,atoi(argv[2]),(user_id == atoi(argv[2])));
 		if(user_id == atoi(argv[2])){
-			fscanf(stdin, "%s %s %s",string, descarte, peca_qtd_s));
+			fscanf(stdin, "%s %s %s",string, descarte, peca_qtd_s);
 			peca_qtd = atoi(peca_qtd_s);
 			user_id_c = strtok(string,"QtdCli");
 			user_id = atoi(user_id_c);
