@@ -119,7 +119,7 @@ int setServer(CLIENT *loc_cl, char *host) {
 	}
 
 	// Linha 10 do arquivo
-	if (!fscanf(stdin, "%s %s", descarte, descarte)) {
+	if (!fscanf(stdin, "%s %s %s", descarte, descarte, descarte)) {
 						printf ("ERRO\n");
 						return 1;
 				}
@@ -128,7 +128,6 @@ int setServer(CLIENT *loc_cl, char *host) {
 }
 
 void skip_buffer(){
-	printf("skip\n");
 	char descarte[256];
 	for(int i=0;i < 500;i++){
 		if(!fscanf(stdin,"%s",descarte));
