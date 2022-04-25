@@ -105,9 +105,43 @@ int *solicitapeca_1_svc(struct peca_req *pecareq,struct svc_req *req){
 void *endclient_1_svc(void *a, struct svc_req *req) {
      if (--nclientes == 0) {
      printf ("##  Servidor  ##\n");
-               printf ("Status: finalizado\n");
-               printf ("estoque: A A B B E H H H H J\n");
-               printf ("entregas: B B J \n");
+     printf ("Status: finalizado\n");
+               
+               for (int step = 0; step < npecas - 1; ++step) {
+                    for (int i = 0; i < npecas - step - 1; ++i) {
+                         if (pecas[i] > pecas[i + 1]) {
+                              int temp = pecas[i];
+                              pecas[i] = pecas[i + 1];
+                              pecas[i + 1] = temp;
+                         }
+                    }
+               }
+               for (int step = 0; step < nentr - 1; ++step) {
+                    for (int i = 0; i < nentr - step - 1; ++i) {
+                         if (entregas[i] > entregas[i + 1]) {
+                              int temp = pecas[i];
+                              entregas[i] = entregas[i + 1];
+                              entregas[i + 1] = temp;
+                         }
+                    }
+               }
+
+               printf ("estoque: ");
+               for (int i = 0; i < npecas; ++i) {
+               printf("%i ", pecas[i]);
+               }
+               
+               printf ("entregas: ");
+               for (int i = 0; i < nentr; ++i) {
+               printf("%i ", entregas[i]);
+               }
+
+               printf("###########\n");
+               
+
+               //printf ("estoque: A A B B E H H H H J\n");
+               //printf ("entregas: B B J \n");
                exit(0);
      }
 }
+

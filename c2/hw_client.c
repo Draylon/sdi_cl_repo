@@ -164,6 +164,8 @@ int main (int argc, char *argv[]) {
 	// Estrutura RPC de comunicação
 	CLIENT *cl;
 
+	printf("Client?\n");
+
 	char descarte[256]; // leituras p/ descarte
 
 	// Verificação dos parâmetros oriundos da console
@@ -215,7 +217,7 @@ int main (int argc, char *argv[]) {
 
 	printf ("##  Cliente %d  ##\n",atoi(argv[2]));
 	printf ("Status: atendido\n");
-	printf ("pCli: B\n");
+	printf ("pCli: %c\n",peca_id);
 	printf ("###########\n");
 
 	endclient_1(NULL, cl);
