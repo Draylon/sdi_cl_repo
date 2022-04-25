@@ -131,11 +131,11 @@ void skip_buffer(){
 	char descarte[256];
 	for(int i=0;i < 500;i++){
 		if(!fscanf(stdin,"%s",descarte));
-		if(0 == strcmp("Clientes",descarte)){
+		if(0 == strcmp("##",descarte)){
 			break;
 		}
 	}
-	if (!fscanf(stdin, " %s", descarte)) {
+	if (!fscanf(stdin, " %s %s", descarte,descarte)) {
 		printf ("ERRO\n");
 		return 1;
 	}
