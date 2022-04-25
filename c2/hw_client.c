@@ -213,7 +213,7 @@ int main (int argc, char *argv[]) {
 	char peca_id;
 	char peca_id_s[256];
 	int peca_qtd;
-	int peca_qtd_s[256];
+	char peca_qtd_s[256];
 	struct peca_req *preq = malloc(sizeof(peca_req));
 	int ex=0;
 	while(ex<=20){
