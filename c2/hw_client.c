@@ -222,8 +222,8 @@ int main (int argc, char *argv[]) {
 		// printf("%s\n",descarte);
 		
 		fscanf(stdin, "%s %s %s", string, descarte, peca_id_s);
-
-		printf("|%s| |%s| |%s|\n",string, descarte, peca_id_s);
+		peca_id = peca_id_s[0];
+		printf("|%s| |%s| |%c|\n",string, descarte, peca_id);
 		user_id_c = strtok(string,"pCli");
 		user_id = atoi(user_id_c);
 		if(user_id == atoi(argv[2])){
