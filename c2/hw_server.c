@@ -119,7 +119,7 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
                for (int step = 0; step < nentr - 1; ++step) {
                     for (int i = 0; i < nentr - step - 1; ++i) {
                          if ((int)entregas[i] > (int)entregas[i + 1]) {
-                              char temp = pecas[i];
+                              char temp = entregas[i];
                               entregas[i] = entregas[i + 1];
                               entregas[i + 1] = temp;
                          }
@@ -132,7 +132,7 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
                          printf("%c ", pecas[i]);
                }
                
-               printf ("entregas: ");
+               printf ("\nentregas: ");
                for (int i = 0; i < nentr; ++i) {
                     if((int)entregas[i] != 32)
                          printf("%c ", entregas[i]);
