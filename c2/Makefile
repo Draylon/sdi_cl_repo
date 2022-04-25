@@ -27,3 +27,9 @@ clean:
 	-rm hw.h
 	-rm hw_clnt.c
 	-rm hw_svc.c
+
+
+build2:
+	make clean
+	git pull
+	make
