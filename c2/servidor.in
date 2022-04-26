@@ -1,5 +1,5 @@
 ## Servidor ##
-NClientes = 2
+NClientes = 3
 NPecas = 13
 pecas = B E A J H B B J H H E A H
 NEsteira = 3
@@ -11,4 +11,6 @@ prateleiras = p1 p2 p3 p4
 pCli1 = B
 QtdCli1 = 1
 pCli2 = J
+QtdCli2 = 2
+pCli2 = H
 QtdCli2 = 2
