@@ -130,21 +130,24 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
 
                printf ("estoque: ");
                for (int i = 0; i < npecas; ++i) {
-                    if((int)pecas[i] != 32)
+                    if((int)pecas[i] != 32){
                          if(i == npecas-1)
                               printf("%c", pecas[i]);
                          else
                               printf("%c ", pecas[i]);
+                    }
                }
                
                printf ("\nentregas: ");
                for (int i = 0; i < nentr; ++i) {
-                    if((int)entregas[i] != 32)
+                    if((int)entregas[i] != 32){
                          if(i == nentr-1)
                               printf("%c", entregas[i]);
                          else
                               printf("%c ", entregas[i]);
+                    }
                }
+               printf("\n");
                free(pecas);
                free(entregas);
 
