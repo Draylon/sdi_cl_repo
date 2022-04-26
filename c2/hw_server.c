@@ -147,7 +147,7 @@ void *endclient_1_svc(void *a, struct svc_req *req) {
                               printf("%c ", entregas[i]);
                     }
                }
-               printf("\n");
+               printf("\n###########\n");
                free(pecas);
                free(entregas);
 
