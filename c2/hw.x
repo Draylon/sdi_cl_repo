@@ -20,4 +20,4 @@ program PROG {
 		int    solicitapeca(peca_req) = 8;
 		void   endclient(void)= 9;
 	} = 1;
-} = 0x30023001;
+} = 0x30023002;
