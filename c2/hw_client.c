@@ -234,7 +234,7 @@ int main (int argc, char *argv[]) {
 			user_id_c = strtok(string,"QtdCli");
 			user_id = atoi(user_id_c);
 
-			if(user_id == atoi(argv[2])){
+			if(1==1){//user_id == atoi(argv[2])){
 				preq->id=peca_id;
 				preq->qt=peca_qtd;
 				printf("solicita:%c %i\n",preq->id,preq->qt);
