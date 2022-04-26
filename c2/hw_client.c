@@ -216,7 +216,7 @@ int main (int argc, char *argv[]) {
 	char peca_qtd_s[256];
 	struct peca_req *preq = malloc(sizeof(peca_req));
 	int ex=0;
-	while(ex<=20){
+	while(ex<=4000){
 		ex++;
 		// printf("Client?%i\n",ex);
 		// fscanf(stdin, "%s", descarte);
@@ -237,7 +237,7 @@ int main (int argc, char *argv[]) {
 			if(1==1){//user_id == atoi(argv[2])){
 				preq->id=peca_id;
 				preq->qt=peca_qtd;
-				printf("solicita:%c %i\n",preq->id,preq->qt);
+				//printf("solicita:%c %i\n",preq->id,preq->qt);
 				solicitapeca_1(preq,cl);
 			}
 			break;
