@@ -13,10 +13,6 @@ int setServer(CLIENT *loc_cl, char *host) {
 	int nc=0;           // número de clientes
 	int np=0;           // número de pecas
 	char peca;
-	int nesteira;
-	char esteira[100];
-	int nprat;
-	char* prat;
 	// ... demais variáveis p/ leitura do arquivo de conf.
 
 	// Linha 1 do arquivo
@@ -61,74 +57,12 @@ int setServer(CLIENT *loc_cl, char *host) {
 		 }
 	}
 
-	// linha 5 da config
-	if (!fscanf(stdin, "%s %s %i", descarte, descarte, &nesteira)) {
-						printf ("ERRO\n");
-						return 1;
-				}
-	
-	// linha 6 da config
-	if (!fscanf(stdin, "%s %s", descarte, descarte)) {
-					 printf ("ERRO\n");
-					 return 1;
-				}
-	
-	for(int i=0;i < nesteira;i++){
-		if (!fscanf(stdin, "%s", &esteira)) {
-							printf ("ERRO\n");
-							return 1;
-					 }
-		struct param esteira1 = parse_esteira(esteira);
-		 // Set esteira no servidor
-		 reti = specas_1(&peca, loc_cl);
-		 if (reti == NULL) {
-				 clnt_perror(loc_cl,host);
-				 exit(1);
-		 }
-	}
-
-	// linha 7 da config
-	if (!fscanf(stdin, "%s %s %i", descarte, descarte, &nprat)) {
-						printf ("ERRO\n");
-						return 1;
-				}
-	
-	// linha 8 da config
-	
-	
-
 	// continuar a leitura do arquivo e configuração
   // ...
 	// TODO
 
 
 	return 0;
-}
-
-struct param parse_esteira(char* str){
-	struct param a;
-
-	unsigned int cp1=1;
-	char c=str[cp1];
-	char num1[20];
-	char num2[20];
-	unsigned int np1=0;
-	while(c != 'E'){
-		num1[np1]=c;np1++;
-		cp1++;
-		c=str[cp1];
-	}
-	cp1++;
-	c=str[cp1];
-	np1=0;
-	while(c != '\0'){
-		num2[np1]=c;np1++;
-		cp1++;
-		c=str[cp1];
-	}
-	a.arg1 = atoi(num1);
-	a.arg2 = atoi(num2);
-	return a;
 }
 
 int main (int argc, char *argv[]) {
@@ -159,17 +93,10 @@ int main (int argc, char *argv[]) {
 	// TODO
 
 
-	if (atoi(argv[2]) == 1) {
-		printf ("##  Cliente %d  ##\n",atoi(argv[2]));
-		printf ("Status: atendido\n");
-		printf ("pCli: B\n");
-		printf ("###########\n");
-         } else {
-		printf ("##  Cliente %d  ##\n",atoi(argv[2]));
-		printf ("Status: atendido\n");
-		printf ("pCli: J\n");
-		printf ("###########\n");
-         }
+	printf ("##  Cliente %d  ##\n",atoi(argv[2]));
+	printf ("Status: atendido\n");
+	printf ("pCli: B\n");
+	printf ("###########\n");
 
 	endclient_1(NULL, cl);
 	// if (ret == NULL) {

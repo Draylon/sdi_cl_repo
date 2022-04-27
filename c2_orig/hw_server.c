@@ -54,7 +54,6 @@ int *specas_1_svc(char *a, struct svc_req *req) {
      static int ret = 0;
 
      pecas[ctpecas] = *a;
-     ctpecas++;
      return (&ret);
 }
 

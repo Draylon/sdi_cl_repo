@@ -16,4 +16,3 @@ do
     #echo 'ssh' $nom_maquinas 'rm -f' $px'.class'
     ssh $nom_maquinas rm -f c_bolsaGeo servidor.in >/dev/null
 done
-#killall -9 s_bolsaGeo
