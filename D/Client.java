@@ -11,7 +11,7 @@ public class Client {
         String cl_id = args[1];
         try {
             // Obtém uma referência para o registro do RMI
-            Registry registry = LocateRegistry.getRegistry(host,6600);
+            Registry registry = LocateRegistry.getRegistry(host,6622);
 
             // Obtém a stub do servidor
             BolsaGeometrica stub= (BolsaGeometrica) registry.lookup("rmiGrupoG");

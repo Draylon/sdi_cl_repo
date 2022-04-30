@@ -107,7 +107,7 @@ public class BGServer implements BolsaGeometrica {
             //BolsaGeometrica stub = (BolsaGeometrica) UnicastRemoteObject.exportObject(server, 0);
             stub = (BolsaGeometrica) UnicastRemoteObject.exportObject(server, 0);
             // Registra a stub no RMI Registry para que ela seja obtAida pelos clientes
-            registry = LocateRegistry.createRegistry(6600);
+            registry = LocateRegistry.createRegistry(6622);
             //Registry registry = LocateRegistry.createRegistry(6600);
             //Registry registry = LocateRegistry.getRegistry(9999);
             registry.bind("rmiGrupoG", stub);
