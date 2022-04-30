@@ -42,7 +42,7 @@ public class Client {
                     peca_qt=Integer.parseInt(word[2]);
                     request_complete=true;
                 }else{
-                    //System.out.println("Ignorado: ("+word[0]+")");
+                    System.out.println("Ignorado: ("+word[0]+")");
                 }
             }
             sc.close();

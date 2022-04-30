@@ -38,20 +38,6 @@ public class BGServer implements BolsaGeometrica {
       return(pecas.length);
     }
 
-    @Override
-    public void requestPeca(PecaReq q) throws RemoteException {
-        if(q.peca_qt==0) System.out.println("EMPTY REQUEST");
-        for(int j=0;j<q.peca_qt;j++){
-            for (int i=0;i<pecas.length;i++) {
-                if(Objects.equals(pecas[i], q.peca_id)){
-                    pecas[i]="_";
-                    entregas.add(q.peca_id);
-                    break;
-                }
-            }
-        }
-    }
-
     public static void setServer () throws Exception {
         Scanner sc = new Scanner(System.in);
         while(true){
@@ -109,8 +95,7 @@ public class BGServer implements BolsaGeometrica {
         System.out.println("estoque: ");
         printSorted(pecas);
         System.out.println("entregas: ");
-        String[] entregas_img = entregas.stream().toArray(String[]::new);
-        printSorted(entregas_img);
+        printSorted(entregas.stream().toArray(String[]::new));
     }
 
     public static void main(String[] args) {
@@ -162,6 +147,20 @@ public class BGServer implements BolsaGeometrica {
             }
         } catch (Exception e) {
         e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void requestPeca(PecaReq q) throws RemoteException {
+        if(q.peca_qt==0) System.out.println("EMPTY REQUEST");
+        for(int j=0;j<q.peca_qt;j++){
+            for (int i=0;i<pecas.length;i++) {
+                if(Objects.equals(pecas[i], q.peca_id)){
+                    pecas[i]="_";
+                    entregas.add(q.peca_id);
+                    break;
+                }
+            }
         }
     }
 
