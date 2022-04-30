@@ -13,7 +13,7 @@ public class BGServer implements BolsaGeometrica {
 
     private static int NClientes;
     private static String[] pecas;
-    private static ArrayList<String> entregas;
+    private static ArrayList<String> entregas = new ArrayList<>();
     private static Registry registry;
     private static BolsaGeometrica stub;
 
