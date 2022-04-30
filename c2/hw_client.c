@@ -138,9 +138,9 @@ void skip_buffer(){
 			break;
 		}
 	}
-	if (!fscanf(stdin, " %s", descarte)) {
+	if (!fscanf(stdin, " %s", descarte,descarte)) {
 		printf ("ERRO\n");
-		return;
+		return 1;
 	}
 }
 
@@ -213,10 +213,10 @@ int main (int argc, char *argv[]) {
 	char peca_id;
 	char peca_id_s[256];
 	int peca_qtd;
-	char peca_qtd_s[256];
+	int peca_qtd_s[256];
 	struct peca_req *preq = malloc(sizeof(peca_req));
 	int ex=0;
-	while(ex<=4000){
+	while(ex<=20){
 		ex++;
 		// printf("Client?%i\n",ex);
 		// fscanf(stdin, "%s", descarte);
@@ -234,7 +234,7 @@ int main (int argc, char *argv[]) {
 			user_id_c = strtok(string,"QtdCli");
 			user_id = atoi(user_id_c);
 
-			if(1==1){//user_id == atoi(argv[2])){
+			if(user_id == atoi(argv[2])){
 				preq->id=peca_id;
 				preq->qt=peca_qtd;
 				//printf("solicita:%c %i\n",preq->id,preq->qt);

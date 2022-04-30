@@ -17,6 +17,8 @@ public class Client {
 
       InetAddress addr = InetAddress.getLocalHost();
       String hostname = addr.getHostName();
+
+
       System.out.println("##  Cliente ("+hostname+") "+args[1]+"  ##");
       System.out.println("Status: atendido por "+args[0]);
       if (args[1].equals("1")) {
@@ -26,6 +28,8 @@ public class Client {
       }
 
       System.out.println("###########");
+
+      
 
       // Chama o método do servidor e imprime a mensagem
       stub.endClient();
