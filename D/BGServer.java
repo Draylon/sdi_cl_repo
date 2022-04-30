@@ -109,7 +109,7 @@ public class BGServer implements BolsaGeometrica {
             registry = LocateRegistry.createRegistry(6600);
             //Registry registry = LocateRegistry.createRegistry(6600);
             //Registry registry = LocateRegistry.getRegistry(9999);
-            registry.bind("myRMIBG", stub);
+            registry.bind("rmiGrupoG", stub);
 
             //System.out.println("Servidor pronto:\n\t\tNroClientes:"+getNroClient()+"\n\t\tPecas:"+getNroPecas()+"\n");
         

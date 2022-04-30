@@ -13,7 +13,7 @@ public class Client {
             Registry registry = LocateRegistry.getRegistry(host,6600);
 
             // Obtém a stub do servidor
-            BolsaGeometrica stub= (BolsaGeometrica) registry.lookup("myRMIBG");
+            BolsaGeometrica stub= (BolsaGeometrica) registry.lookup("rmiGrupoG");
 
             InetAddress addr = InetAddress.getLocalHost();
             String hostname = addr.getHostName();
@@ -48,6 +48,10 @@ public class Client {
             sc.close();
             if(request_complete){
                 stub.requestPeca(new PecaReq().setPeca_id(peca_id).setPeca_qt(peca_qt));
+                System.out.println("##  Cliente ("+hostname+") "+args[1]+"  ##");
+                System.out.println("Status: atendido por "+args[0]);
+                System.out.println("pCli: "+peca_id);
+                System.out.println("###########");
             }
             /*
             //Template do print
