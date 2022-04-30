@@ -81,8 +81,8 @@ public class BGServer implements BolsaGeometrica {
 
     static void printSorted(String[] v){
         Arrays.stream(v).sorted().forEach((String peca)->{
-                System.out.print(peca+" ");
             if(!Objects.equals(peca, "_")){
+                System.out.print(peca+" ");
             }
         });
         System.out.println();
@@ -141,7 +141,7 @@ public class BGServer implements BolsaGeometrica {
     public void endClient() throws RemoteException {
         try {
             setNroClient(getNroClient()-1);
-            //System.out.println("Clientes ativos = "+this.getNroClient());
+            System.out.println("Clientes ativos = "+this.getNroClient());
             if (this.getNroClient()==0) {
                 this.stopServer();
             }
