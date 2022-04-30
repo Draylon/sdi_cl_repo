@@ -13,6 +13,7 @@ public class BGServer implements BolsaGeometrica {
 
     private static int NClientes;
     private static String[] pecas;
+    private static ArrayList<String> entregas;
     private static Registry registry;
     private static BolsaGeometrica stub;
 
@@ -44,6 +45,7 @@ public class BGServer implements BolsaGeometrica {
             for (int i=0;i<pecas.length;i++) {
                 if(Objects.equals(pecas[i], q.peca_id)){
                     pecas[i]="_";
+                    entregas.add(q.peca_id);
                     break;
                 }
             }
@@ -91,11 +93,22 @@ public class BGServer implements BolsaGeometrica {
 
     }
 
+    static void printSorted(String[] v){
+        Arrays.stream(v).sorted().forEach((String peca)->{
+            if(!Objects.equals(peca, "_")){
+                System.out.print(peca+" ");
+            }
+        });
+        System.out.println();
+    }
+
     static void printReport() {
         System.out.println("##  Servidor  ##");
         System.out.println("Status: finalizado");
-        System.out.println("estoque: A A B B E H H H H");
-        System.out.println("entregas: B J J");
+        System.out.println("estoque: ");
+        printSorted(pecas);
+        System.out.println("entregas: ");
+        printSorted(entregas.toArray(new String[0]));
     }
 
     public static void main(String[] args) {
