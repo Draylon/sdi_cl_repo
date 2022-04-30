@@ -25,6 +25,7 @@ public class BGServer implements BolsaGeometrica {
     }
 
     public static void setPecas(String[] lpecas) throws Exception {
+        pecas = new String[lpecas.length-2];
         System.arraycopy(lpecas,2,pecas,0,lpecas.length-2);
     }
 
