@@ -151,13 +151,27 @@ public class BGServer implements BolsaGeometrica {
     }
 
     @Override
-    public void requestPeca(PecaReq q) throws RemoteException {
+    public void requestPeca1(PecaReq q) throws RemoteException {
         if(q.peca_qt==0) System.out.println("EMPTY REQUEST");
         for(int j=0;j<q.peca_qt;j++){
             for (int i=0;i<pecas.length;i++) {
                 if(Objects.equals(pecas[i], q.peca_id)){
                     pecas[i]="_";
                     entregas.add(q.peca_id);
+                    break;
+                }
+            }
+        }
+    }
+
+    @Override
+    public void requestPeca2(String peca_id, int peca_qt) throws RemoteException {
+        if(peca_qt==0) System.out.println("EMPTY REQUEST");
+        for(int j=0;j<peca_qt;j++){
+            for (int i=0;i<pecas.length;i++) {
+                if(Objects.equals(pecas[i], peca_id)){
+                    pecas[i]="_";
+                    entregas.add(peca_id);
                     break;
                 }
             }

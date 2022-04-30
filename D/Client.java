@@ -48,7 +48,8 @@ public class Client {
             }
             sc.close();
             if(request_complete){
-                stub.requestPeca(new PecaReq().setPeca_id(peca_id).setPeca_qt(peca_qt));
+                //stub.requestPeca1(new PecaReq().setPeca_id(peca_id).setPeca_qt(peca_qt));
+                stub.requestPeca2(peca_id,peca_qt);
                 System.out.println("##  Cliente ("+hostname+") "+args[1]+"  ##");
                 System.out.println("Status: atendido por "+args[0]);
                 System.out.println("pCli: "+peca_id);
