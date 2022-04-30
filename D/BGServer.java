@@ -95,8 +95,8 @@ public class BGServer implements BolsaGeometrica {
 
     static void printSorted(String[] v){
         Arrays.stream(v).sorted().forEach((String peca)->{
-            if(!Objects.equals(peca, "_")){
                 System.out.print(peca+" ");
+            if(!Objects.equals(peca, "_")){
             }
         });
         System.out.println();
@@ -108,6 +108,7 @@ public class BGServer implements BolsaGeometrica {
         System.out.println("estoque: ");
         printSorted(pecas);
         System.out.println("entregas: ");
+        System.out.println(entregas.stream().toArray(String[]::new));
         printSorted(entregas.stream().toArray(String[]::new));
     }
 
