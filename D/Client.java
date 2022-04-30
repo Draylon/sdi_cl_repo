@@ -8,6 +8,7 @@ public class Client {
 
     public static void main(String[] args) {
         String host = (args.length < 1) ? null : args[0];
+        String cl_id = args[1];
         try {
             // Obtém uma referência para o registro do RMI
             Registry registry = LocateRegistry.getRegistry(host,6600);
@@ -36,13 +37,13 @@ public class Client {
 
                 if(word[0].equals("## Clientes ##")){
                     clFlag=true;
-                }else if(word[0].equals("pCli"+host)){
+                }else if(word[0].equals("pCli"+cl_id)){
                     peca_id=word[2];
-                }else if(word[0].equals("QtdCli"+host)){
+                }else if(word[0].equals("QtdCli"+cl_id)){
                     peca_qt=Integer.parseInt(word[2]);
                     request_complete=true;
                 }else{
-                    System.out.println("Ignorado: ("+word[0]+")");
+                    //System.out.println("Ignorado: ("+word[0]+")");
                 }
             }
             sc.close();
