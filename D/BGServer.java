@@ -70,7 +70,9 @@ public class BGServer implements BolsaGeometrica {
         try {
             System.out.println("stop?");
             registry.unbind("rmiGrupoG");
+            System.out.println("no stop1?");
             UnicastRemoteObject.unexportObject(registry,true);
+            System.out.println("no stop2?");
         } catch (NoSuchObjectException e) {
             e.printStackTrace();
         } catch (NotBoundException e) {
