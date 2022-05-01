@@ -82,7 +82,7 @@ public class BGServer implements BolsaGeometrica {
     static void printSorted(String[] v){
         Arrays.stream(v).sorted().forEach((String peca)->{
             if(!Objects.equals(peca, "_")){
-                System.out.print(peca+" ");
+                System.out.print(" "+peca);
             }
         });
         System.out.println();
@@ -92,9 +92,9 @@ public class BGServer implements BolsaGeometrica {
         //A A B B B E E H H H H J J
         System.out.println("##  Servidor  ##");
         System.out.println("Status: finalizado");
-        System.out.println("estoque: ");
+        System.out.println("estoque:");
         printSorted(pecas);
-        System.out.println("entregas: ");
+        System.out.println("entregas:");
         printSorted(entregas.stream().toArray(String[]::new));
     }
 
