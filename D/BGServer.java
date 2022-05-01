@@ -85,7 +85,6 @@ public class BGServer implements BolsaGeometrica {
                 System.out.print(" "+peca);
             }
         });
-        System.out.println();
     }
 
     static void printReport() {
@@ -94,6 +93,7 @@ public class BGServer implements BolsaGeometrica {
         System.out.println("Status: finalizado");
         System.out.print("estoque:");
         printSorted(pecas);
+        System.out.println();
         System.out.print("entregas:");
         printSorted(entregas.stream().toArray(String[]::new));
     }
