@@ -92,9 +92,9 @@ public class BGServer implements BolsaGeometrica {
         //A A B B B E E H H H H J J
         System.out.println("##  Servidor  ##");
         System.out.println("Status: finalizado");
-        System.out.println("estoque:");
+        System.out.print("estoque:");
         printSorted(pecas);
-        System.out.println("entregas:");
+        System.out.print("entregas:");
         printSorted(entregas.stream().toArray(String[]::new));
     }
 
