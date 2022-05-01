@@ -68,6 +68,7 @@ public class BGServer implements BolsaGeometrica {
 
     public static void stopServer() {
         try {
+            System.out.println("stop?");
             registry.unbind("rmiGrupoG");
             UnicastRemoteObject.unexportObject(registry,true);
         } catch (NoSuchObjectException e) {
@@ -142,8 +143,8 @@ public class BGServer implements BolsaGeometrica {
         try {
             setNroClient(getNroClient()-1);
             System.out.println("Clientes ativos = "+this.getNroClient());
-            if (this.getNroClient()==0) {
-                this.stopServer();
+            if (getNroClient()==0) {
+                stopServer();
             }
         } catch (Exception e) {
         e.printStackTrace();
