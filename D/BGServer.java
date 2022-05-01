@@ -134,7 +134,6 @@ public class BGServer implements BolsaGeometrica {
             }
         }
         System.exit(0);
-
     }
 
     // Métodos disponíveis via RMI
