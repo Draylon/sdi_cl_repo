@@ -141,7 +141,7 @@ public class BGServer implements BolsaGeometrica {
     public void endClient() throws RemoteException {
         try {
             setNroClient(getNroClient()-1);
-            System.out.println("Clientes ativos = "+this.getNroClient());
+            //System.out.println("Clientes ativos = "+this.getNroClient());
             if (getNroClient()==0) {
                 stopServer();
             }
