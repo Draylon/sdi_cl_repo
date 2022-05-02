@@ -1,0 +1,7 @@
+make clean; make ;
+
+1) servidor
+  java MYC.ServerPublisher < input.in
+
+2) cliente
+  java MYC.Client localhost 1

@@ -1,0 +1,26 @@
+* SERVER: Beginning to publish WS Servers (ens1) *
+* All done publishing. *
+##  Cliente (ens2) 1  ##
+Status: Pronto
+WS-Pandelo: 2
+WS-Cobertura: 1
+WS-Recheio: 4
+WS-Cortes:2
+###########
+##  Cliente (ens3) 2  ##
+Status: Pronto
+WS-Pandelo: 2
+WS-Cobertura: 1
+WS-Recheio: 4
+WS-Cortes:2
+###########
+* Server End *
+##  Servidor  ##
+Status: finalizado
+Nro_clientes_atendidos: 2
+WS-Pandelo (ens1): 4
+WS-Cobertura (ens1): 2
+WS-Recheio (ens1): 8
+WS-Cortes (ens1): 4
+WS-Recepcao (ens1): 18
+###########
