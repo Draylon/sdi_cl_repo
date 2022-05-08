@@ -25,3 +25,9 @@ classes: $(CLASSES:.java=.class)
 
 clean:
 	rm -f *.class 
+
+Send_:
+	java -cp $(CP) Send
+
+Receive_:
+	java -cp $(CP) Recv
