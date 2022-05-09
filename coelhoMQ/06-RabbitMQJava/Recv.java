@@ -29,6 +29,6 @@ public class Recv {
 
     };
 
-    channel.basicConsume(QUEUE_NAME, true,args, consumer);
+    channel.basicConsume(QUEUE_NAME, true, consumer);
   }
 }
