@@ -4,6 +4,8 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Send {
 
@@ -15,7 +17,9 @@ public class Send {
     Connection connection = factory.newConnection();
     Channel channel = connection.createChannel();
 
-    channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+    Map<String, Object> args = new HashMap<String, Object>();
+    args.put("x-priority", 10);
+    channel.queueDeclare(QUEUE_NAME, false, false, false, args);
 
     AMQP.BasicProperties p = new AMQP.BasicProperties.Builder().priority(2).build();
 

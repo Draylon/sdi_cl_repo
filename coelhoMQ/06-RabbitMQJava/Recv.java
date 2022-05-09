@@ -14,7 +14,10 @@ public class Recv {
     Connection connection = factory.newConnection();
     Channel channel = connection.createChannel();
 
-    channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+    Map<String, Object> args = new HashMap<String, Object>();
+    args.put("x-priority", 10);
+
+    channel.queueDeclare(QUEUE_NAME, false, false, false, args);
     System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
     Consumer consumer = new DefaultConsumer(channel) {
@@ -26,8 +29,6 @@ public class Recv {
 
     };
 
-    Map<String, Object> args = new HashMap<String, Object>();
-    args.put("x-priority", 10);
     channel.basicConsume(QUEUE_NAME, true,args, consumer);
   }
 }
