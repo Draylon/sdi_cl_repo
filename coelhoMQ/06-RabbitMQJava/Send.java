@@ -20,10 +20,30 @@ public class Send {
     AMQP.BasicProperties p = new AMQP.BasicProperties(null,null,null,null,2,null,null,null,null, new Date(),null,null,null,null);
 
     String message = "Hello World!";
+    String messagep = "Special Hello World!";
+
     channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + message + "'");
-    message = "Special Hello World!";
-    channel.basicPublish("", QUEUE_NAME, p, message.getBytes("UTF-8"));
+
+    channel.basicPublish("", QUEUE_NAME, p, messagep.getBytes("UTF-8"));
+    System.out.println(" [x] Sent '" + messagep + "'");
+
+    channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
+    System.out.println(" [x] Sent '" + message + "'");
+
+    channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
+    System.out.println(" [x] Sent '" + message + "'");
+
+    channel.basicPublish("", QUEUE_NAME, p, messagep.getBytes("UTF-8"));
+    System.out.println(" [x] Sent '" + messagep + "'");
+
+    channel.basicPublish("", QUEUE_NAME, p, messagep.getBytes("UTF-8"));
+    System.out.println(" [x] Sent '" + messagep + "'");
+
+    channel.basicPublish("", QUEUE_NAME, p, messagep.getBytes("UTF-8"));
+    System.out.println(" [x] Sent '" + messagep + "'");
+
+    channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + message + "'");
 
     channel.close();
