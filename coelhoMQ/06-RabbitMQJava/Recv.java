@@ -25,7 +25,7 @@ public class Recv {
       }
 
     };
-    
+
     Map<String, Object> args = new HashMap<String, Object>();
     args.put("x-priority", 10);
     channel.basicConsume(QUEUE_NAME, true,args, consumer);

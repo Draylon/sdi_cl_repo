@@ -17,7 +17,7 @@ public class Send {
 
     channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
-    AMQP.BasicProperties p = new AMQP.BasicProperties(null,null,null,null,2,null,null,null,null, new Date(),null,null,null,null);
+    AMQP.BasicProperties p = new AMQP.BasicProperties.Builder().priority(2).build();
 
     String message = "Hello World!";
     String messagep = "Special Hello World!";
