@@ -1,6 +1,8 @@
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Recv {
 
@@ -17,12 +19,15 @@ public class Recv {
 
     Consumer consumer = new DefaultConsumer(channel) {
       @Override
-      public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
-          throws IOException {
+      public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
         String message = new String(body, "UTF-8");
         System.out.println(" [x] Received '" + message + "'");
       }
+
     };
-    channel.basicConsume(QUEUE_NAME, true, consumer);
+    
+    Map<String, Object> args = new HashMap<String, Object>();
+    args.put("x-priority", 10);
+    channel.basicConsume(QUEUE_NAME, true,args, consumer);
   }
 }
