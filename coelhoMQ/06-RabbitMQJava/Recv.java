@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Recv {
 
-  private final static String QUEUE_NAME = "hello";
+  private final static String QUEUE_NAME = "random_queue_1";
 
   public static void main(String[] argv) throws Exception {
     ConnectionFactory factory = new ConnectionFactory();
