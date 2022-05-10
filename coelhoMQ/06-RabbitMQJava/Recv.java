@@ -35,8 +35,8 @@ public class Recv {
     if(priority==1) lower_queue.put(msg, age);
     else upper_queue.put(msg,age);
 
-    while(lista_semaforo){ try {Thread.sleep(200);} catch (InterruptedException e) {} }
-    msg_queue = true;
+    //while(lista_semaforo){ try {Thread.sleep(200);} catch (InterruptedException e) {} }
+    //msg_queue = true;
 
     //Desempilha
     // age = age - 5 * priority
@@ -48,7 +48,7 @@ public class Recv {
         upper_queue.put(queuedMessage,integer - 2000*queuedMessage.priority);
     });
 
-    msg_queue = false;
+    //msg_queue = false;
 
     final QueuedMessage[] lower_q = {null};
     final Integer[] lower_q_i = {null};
