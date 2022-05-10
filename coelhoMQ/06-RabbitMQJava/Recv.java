@@ -41,11 +41,11 @@ public class Recv {
     //Desempilha
     // age = age - 5 * priority
     lower_queue.forEach((queuedMessage, integer) -> {
-        lower_queue.put(queuedMessage,integer - 2000*queuedMessage.priority);
+        lower_queue.put(queuedMessage,integer - 5*queuedMessage.priority);
     });
 
     upper_queue.forEach((queuedMessage, integer) -> {
-        upper_queue.put(queuedMessage,integer - 2000*queuedMessage.priority);
+        upper_queue.put(queuedMessage,integer - 5*queuedMessage.priority);
     });
 
     //msg_queue = false;
@@ -96,7 +96,7 @@ public class Recv {
 
 
 
-    try {Thread.sleep(500);} catch (InterruptedException e) {}
+    //try {Thread.sleep(500);} catch (InterruptedException e) {}
   }
 
   public static void main(String[] argv) throws Exception {
