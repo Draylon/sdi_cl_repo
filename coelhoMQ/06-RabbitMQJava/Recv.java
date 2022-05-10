@@ -27,7 +27,6 @@ public class Recv {
   private static void consume_thread(){
       t = new Thread(() -> {
         while(channel.getConnection().isOpen()){
-          System.out.println(" - ");
           if(qt_msg<=0) {
             try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
             continue;
