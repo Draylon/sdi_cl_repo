@@ -47,11 +47,11 @@ public class Recv {
     //Desempilha
     // age = age - 5 * priority
     lower_queue.forEach((queuedMessage, integer) -> {
-        lower_queue.put(queuedMessage,integer - 5*queuedMessage.priority);
+        lower_queue.put(queuedMessage,integer - 1000*queuedMessage.priority);
     });
 
     upper_queue.forEach((queuedMessage, integer) -> {
-        upper_queue.put(queuedMessage,integer - 5*queuedMessage.priority);
+        upper_queue.put(queuedMessage,integer - 1000*queuedMessage.priority);
     });
 
     final QueuedMessage[] lower_q = {null};
