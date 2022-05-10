@@ -23,33 +23,34 @@ public class Send {
     channel.queueDeclare(UPPER_QUEUE, false, false, false, args);
     channel.queueDeclare(LOWER_QUEUE, false, false, false, args);
 
-    AMQP.BasicProperties p = new AMQP.BasicProperties.Builder().priority(2).build();
+    AMQP.BasicProperties p1 = new AMQP.BasicProperties.Builder().timestamp(new Date()).priority(2).build();
+    AMQP.BasicProperties p2 = new AMQP.BasicProperties.Builder().timestamp(new Date()).priority(0).build();
 
     String message = "Hello World!";
     String messagep = "Special Hello World!";
 
-    channel.basicPublish("", LOWER_QUEUE, null, message.getBytes("UTF-8"));
+    channel.basicPublish("", LOWER_QUEUE, p2, message.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + message + "'");
 
-    channel.basicPublish("", UPPER_QUEUE, p, messagep.getBytes("UTF-8"));
+    channel.basicPublish("", UPPER_QUEUE, p1, messagep.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + messagep + "'");
 
-    channel.basicPublish("", LOWER_QUEUE, null, message.getBytes("UTF-8"));
+    channel.basicPublish("", LOWER_QUEUE, p2, message.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + message + "'");
 
-    channel.basicPublish("", LOWER_QUEUE, null, message.getBytes("UTF-8"));
+    channel.basicPublish("", LOWER_QUEUE, p2, message.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + message + "'");
 
-    channel.basicPublish("", UPPER_QUEUE, p, messagep.getBytes("UTF-8"));
+    channel.basicPublish("", UPPER_QUEUE, p1, messagep.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + messagep + "'");
 
-    channel.basicPublish("", UPPER_QUEUE, p, messagep.getBytes("UTF-8"));
+    channel.basicPublish("", UPPER_QUEUE, p1, messagep.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + messagep + "'");
 
-    channel.basicPublish("", UPPER_QUEUE, p, messagep.getBytes("UTF-8"));
+    channel.basicPublish("", UPPER_QUEUE, p1, messagep.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + messagep + "'");
 
-    channel.basicPublish("", LOWER_QUEUE, null, message.getBytes("UTF-8"));
+    channel.basicPublish("", LOWER_QUEUE, p2, message.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + message + "'");
 
     channel.close();
