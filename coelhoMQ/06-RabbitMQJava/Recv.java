@@ -73,12 +73,20 @@ public class Recv {
     });
 
     System.out.println(" [x] Received '" + message + "'"+" | age: "+age+" | priority: "+priority);
-    if(upper_q_i[0] < lower_q_i[0]){
+    if(upper_q[0]==null){
+      System.out.println("Print s/ prioridade");
+      lower_queue.remove(lower_q[0]);
+    }else if(lower_q[0] == null){
       System.out.println("Print da prioridade");
       upper_queue.remove(upper_q[0]);
     }else{
-      System.out.println("Print s/ prioridade");
-      lower_queue.remove(lower_q[0]);
+      if(upper_q_i[0] < lower_q_i[0]){
+        System.out.println("Print da prioridade");
+        upper_queue.remove(upper_q[0]);
+      }else{
+        System.out.println("Print s/ prioridade");
+        lower_queue.remove(lower_q[0]);
+      }
     }
 
 
