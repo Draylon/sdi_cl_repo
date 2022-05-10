@@ -20,11 +20,7 @@ public class Recv {
     }
     msg_queue = true;*/
 
-    System.out.println((consumerTag==null?"y":"n")+" "+(envelope==null?"y":"n")+" "+(properties==null?"y":"n")+" "+(body==null?"y":"n"));
-    System.out.println(properties);
-    if(1==1) return;
-    Date date = new Date();
-    long age = date.getTime() -
+    long age = new Date().getTime() -
             properties.getTimestamp().getTime();
     int priority = properties.getPriority();
     System.out.println("age: "+age+" | priority: "+priority);
