@@ -9,7 +9,8 @@ import java.util.Map;
 
 public class Send {
 
-  private final static String QUEUE_NAME = "random_queue_1";
+  private final static String UPPER_QUEUE = "random_queue_1";
+  private final static String LOWER_QUEUE = "random_queue_2";
 
   public static void main(String[] argv) throws Exception {
     ConnectionFactory factory = new ConnectionFactory();
@@ -19,35 +20,36 @@ public class Send {
 
     Map<String, Object> args = new HashMap<String, Object>();
     args.put("x-priority", 10);
-    channel.queueDeclare(QUEUE_NAME, false, false, false, args);
+    channel.queueDeclare(UPPER_QUEUE, false, false, false, args);
+    channel.queueDeclare(LOWER_QUEUE, false, false, false, args);
 
     AMQP.BasicProperties p = new AMQP.BasicProperties.Builder().priority(2).build();
 
     String message = "Hello World!";
     String messagep = "Special Hello World!";
 
-    channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
+    channel.basicPublish("", LOWER_QUEUE, null, message.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + message + "'");
 
-    channel.basicPublish("", QUEUE_NAME, p, messagep.getBytes("UTF-8"));
+    channel.basicPublish("", UPPER_QUEUE, p, messagep.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + messagep + "'");
 
-    channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
+    channel.basicPublish("", LOWER_QUEUE, null, message.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + message + "'");
 
-    channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
+    channel.basicPublish("", LOWER_QUEUE, null, message.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + message + "'");
 
-    channel.basicPublish("", QUEUE_NAME, p, messagep.getBytes("UTF-8"));
+    channel.basicPublish("", UPPER_QUEUE, p, messagep.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + messagep + "'");
 
-    channel.basicPublish("", QUEUE_NAME, p, messagep.getBytes("UTF-8"));
+    channel.basicPublish("", UPPER_QUEUE, p, messagep.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + messagep + "'");
 
-    channel.basicPublish("", QUEUE_NAME, p, messagep.getBytes("UTF-8"));
+    channel.basicPublish("", UPPER_QUEUE, p, messagep.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + messagep + "'");
 
-    channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
+    channel.basicPublish("", LOWER_QUEUE, null, message.getBytes("UTF-8"));
     System.out.println(" [x] Sent '" + message + "'");
 
     channel.close();
