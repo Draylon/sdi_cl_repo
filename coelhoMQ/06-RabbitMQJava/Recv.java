@@ -90,6 +90,7 @@ public class Recv {
         }
 
       });
+      t.start();
   }
 
   public static void receber_msg(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws UnsupportedEncodingException {
