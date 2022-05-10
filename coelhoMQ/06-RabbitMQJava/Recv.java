@@ -32,27 +32,23 @@ public class Recv {
 
     QueuedMessage msg = new QueuedMessage(message,age,priority);
 
-    while(lista_semaforo){
-      try {Thread.sleep(200);} catch (InterruptedException e) {}
-    }
+    if(priority==1) lower_queue.put(msg, age);
+    else upper_queue.put(msg,age);
+
+    while(lista_semaforo){ try {Thread.sleep(200);} catch (InterruptedException e) {} }
     msg_queue = true;
-
-    if(priority==1)
-      lower_queue.put(msg, age);
-    else
-      upper_queue.put(msg,age);
-
-    msg_queue = false;
 
     //Desempilha
     // age = age - 5 * priority
     lower_queue.forEach((queuedMessage, integer) -> {
-        lower_queue.put(queuedMessage,integer - 1000*queuedMessage.priority);
+        lower_queue.put(queuedMessage,integer - 2000*queuedMessage.priority);
     });
 
     upper_queue.forEach((queuedMessage, integer) -> {
-        upper_queue.put(queuedMessage,integer - 1000*queuedMessage.priority);
+        upper_queue.put(queuedMessage,integer - 2000*queuedMessage.priority);
     });
+
+    msg_queue = false;
 
     final QueuedMessage[] lower_q = {null};
     final Integer[] lower_q_i = {null};
@@ -71,6 +67,8 @@ public class Recv {
           upper_q_i[0] = integer;
         }
     });
+
+
 
     System.out.println("Escolha:");
     System.out.println(lower_q_i[0] +" : "+upper_q_i[0]);
@@ -97,7 +95,8 @@ public class Recv {
     }
 
 
-    try {Thread.sleep(1000);} catch (InterruptedException e) {}
+
+    try {Thread.sleep(500);} catch (InterruptedException e) {}
   }
 
   public static void main(String[] argv) throws Exception {
