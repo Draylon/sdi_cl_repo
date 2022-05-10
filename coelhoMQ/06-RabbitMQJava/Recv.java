@@ -20,6 +20,8 @@ public class Recv {
     }
     msg_queue = true;*/
 
+    System.out.println(consumerTag+" "+envelope+" "+properties+" "+body);
+    if(1==1) return;
     Date date = new Date();
     long age = date.getTime() -
             properties.getTimestamp().getTime();
