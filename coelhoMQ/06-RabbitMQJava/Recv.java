@@ -20,7 +20,8 @@ public class Recv {
     }
     msg_queue = true;*/
 
-    long age = new Date().getTime() - properties.getTimestamp().getTime();
+    Date date = new Date();
+    long age = date.getTime() - properties.getTimestamp().getTime();
     int priority = properties.getPriority();
     System.out.println("age: "+age+" | priority: "+priority);
 
