@@ -24,7 +24,7 @@ public class Send {
     channel.queueDeclare(LOWER_QUEUE, false, false, false, args);
 
     AMQP.BasicProperties p1 = new AMQP.BasicProperties.Builder().timestamp(new Date()).priority(2).build();
-    AMQP.BasicProperties p2 = new AMQP.BasicProperties.Builder().timestamp(new Date()).priority(0).build();
+    AMQP.BasicProperties p2 = new AMQP.BasicProperties.Builder().timestamp(new Date()).priority(1).build();
 
     String message = "Hello World!";
     String messagep = "Special Hello World!";
