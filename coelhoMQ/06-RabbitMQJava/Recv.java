@@ -72,6 +72,9 @@ public class Recv {
         }
     });
 
+    System.out.println("Escolha:");
+    System.out.println(lower_q_i[0] +" : "+upper_q_i[0]);
+
 
     if(upper_q[0]==null){
       System.out.println("Print s/ prioridade");
