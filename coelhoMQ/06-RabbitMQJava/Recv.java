@@ -72,19 +72,23 @@ public class Recv {
         }
     });
 
-    System.out.println(" [x] Received '" + message + "'"+" | age: "+age+" | priority: "+priority);
+
     if(upper_q[0]==null){
       System.out.println("Print s/ prioridade");
+      System.out.println(" [x] Received '" + lower_q[0].msg + "'"+" | age: "+lower_q[0].age+" | priority: "+lower_q[0].priority +" priority na fila: "+lower_q_i[0]);
       lower_queue.remove(lower_q[0]);
     }else if(lower_q[0] == null){
       System.out.println("Print da prioridade");
+      System.out.println(" [x] Received '" + upper_q[0].msg + "'"+" | age: "+upper_q[0].age+" | priority: "+upper_q[0].priority +" priority na fila: "+upper_q_i[0]);
       upper_queue.remove(upper_q[0]);
     }else{
       if(upper_q_i[0] < lower_q_i[0]){
         System.out.println("Print da prioridade");
+        System.out.println(" [x] Received '" + upper_q[0].msg + "'"+" | age: "+upper_q[0].age+" | priority: "+upper_q[0].priority +" priority na fila: "+upper_q_i[0]);
         upper_queue.remove(upper_q[0]);
       }else{
         System.out.println("Print s/ prioridade");
+        System.out.println(" [x] Received '" + lower_q[0].msg + "'"+" | age: "+lower_q[0].age+" | priority: "+lower_q[0].priority +" priority na fila: "+lower_q_i[0]);
         lower_queue.remove(lower_q[0]);
       }
     }
