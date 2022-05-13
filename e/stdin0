@@ -1,0 +1,27 @@
+##  Recepcao  ##
+NClientes = 2
+Guiche = WS-Pandelo
+Guiche = WS-Cobertura
+Guiche = WS-Recheio
+Guiche = WS-Cortes
+
+##  Clientes ##
+**** Cliente 1 ****
+WS-Pandelo = baunilha
+WS-Cortes  = estrelar
+WS-Recheio = trufas
+WS-Recheio = banana
+WS-Pandelo = chocolate
+WS-Cortes  = estrelar
+WS-Recheio = chocolate ao leite
+WS-Recheio = coco
+WS-Cobertura = chocolate
+**** Cliente 2 ****
+WS-Pandelo = chocolate
+WS-Cortes  = circular
+WS-Recheio = chocolate amargo
+WS-Recheio = banana
+WS-Pandelo = chocolate
+WS-Cortes  = circular
+WS-Recheio = chocolate amargo
+WS-Recheio = leite condensado
