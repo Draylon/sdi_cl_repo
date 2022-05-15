@@ -36,12 +36,12 @@ public class Client {
               if(word.length < 2)
                   continue;
               if (Objects.equals(word[1], "Cliente") && !client_start) {
-                  System.out.println(word[2]+" == "+cl_id+" : "+Objects.equals(word[2], cl_id));
+                  //System.out.println(word[2]+" == "+cl_id+" : "+Objects.equals(word[2], cl_id));
                   if(Objects.equals(word[2], cl_id)) {
                       client_start = true;
                   }
               }else if( Objects.equals(word[0], "****") && client_start ) {
-                  System.out.println(word[1]+" == **** : "+Objects.equals(word[1], cl_id));
+                  //System.out.println(word[1]+" == **** : "+Objects.equals(word[1], cl_id));
                 client_start = false;
               }else if(client_start){
                   // word[0] servico?
