@@ -16,7 +16,7 @@ public class Client {
   static HashMap<String,Integer> requests = new HashMap<>();
 
   static String[] remove_vazios(String[] word){
-    return Arrays.stream(word).filter(String::isEmpty).collect(Collectors.toList()).toArray(new String[0]);
+    return Arrays.stream(word).filter(x->!x.isEmpty()).collect(Collectors.toList()).toArray(new String[0]);
   }
 
   static void readSetup (String host, WSRecepcaoServer srecepcao) {
