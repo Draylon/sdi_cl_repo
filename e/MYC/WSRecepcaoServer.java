@@ -23,12 +23,12 @@ public interface WSRecepcaoServer {
 	@WebMethod
 	public int getRequests();
 	@WebMethod
-	public void solicitaCobertura(String cl,String tipo) throws Exception;
+	public void solicitaCobertura(String tipo) throws Exception;
 	@WebMethod
-	public void solicitaCorte(String cl,String tipo)throws Exception;
+	public void solicitaCorte(String tipo)throws Exception;
 	@WebMethod
-	public void solicitaPandelo(String cl,String tipo)throws Exception;
+	public void solicitaPandelo(String tipo)throws Exception;
 	@WebMethod
-	public void solicitaRecheio(String cl,String tipo)throws Exception;
+	public void solicitaRecheio(String tipo)throws Exception;
 
 }

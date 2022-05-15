@@ -48,19 +48,19 @@ public class Client {
                   // word[2] tipo?
                 switch (word[0]) {
                     case "WS-Cobertura":
-                      srecepcao.solicitaCobertura(cl_id,juntar_nome(word));
+                      srecepcao.solicitaCobertura(juntar_nome(word));
                       requests.put("WSCobertura",requests.getOrDefault("WSCobertura",0)+1);
                         break;
                     case "WS-Pandelo":
-                      srecepcao.solicitaPandelo(cl_id,juntar_nome(word));
+                      srecepcao.solicitaPandelo(juntar_nome(word));
                       requests.put("WSPandelo",requests.getOrDefault("WSPandelo",0)+1);
                         break;
                     case "WS-Recheio":
-                      srecepcao.solicitaRecheio(cl_id,juntar_nome(word));
+                      srecepcao.solicitaRecheio(juntar_nome(word));
                       requests.put("WSRecheio",requests.getOrDefault("WSRecheio",0)+1);
                         break;
                     case "WS-Cortes":
-                      srecepcao.solicitaCorte(cl_id,juntar_nome(word));
+                      srecepcao.solicitaCorte(juntar_nome(word));
                       requests.put("WSCorte",requests.getOrDefault("WSCorte",0)+1);
                         break;
                 }
