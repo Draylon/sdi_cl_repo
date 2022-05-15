@@ -69,7 +69,7 @@ public class Client {
         System.out.println("ERROR: java MYC.Client <host_server> <name>");
         System.exit(1);
       }
-      cl_id = args[2];
+      cl_id = args[1];
 
       // ##### WS Recepcao  #####
       URL url1 = new URL("http://"+host+":9875/WSRecepcao?wsdl");
@@ -78,14 +78,13 @@ public class Client {
 
       Service recepcao = Service.create(url1, qname1);
       WSRecepcaoServer srecepcao = recepcao.getPort(WSRecepcaoServer.class);
-      String name1 = args[1];
       InetAddress addr = InetAddress.getLocalHost();
       String hostname = addr.getHostName();
-      srecepcao.setHost(name1);
+      srecepcao.setHost(cl_id);
       readSetup(host,srecepcao);
       srecepcao.endClient();
 
-      System.out.println("##  Cliente ("+hostname+") "+name1+"  ##");
+      System.out.println("##  Cliente ("+hostname+") "+cl_id+"  ##");
       System.out.println("Status: Pronto");
       System.out.println("WS-Pandelo: "+requests.getOrDefault("WSPandelo",0));
       System.out.println("WS-Cobertura: "+requests.getOrDefault("WSCobertura",0));
