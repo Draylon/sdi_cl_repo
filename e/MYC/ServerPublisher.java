@@ -85,11 +85,11 @@ public class ServerPublisher {
         ep_cor.publish("http://"+host+":9717/WSCortes");
 
         // WS Recheio
-        Endpoint ep_rec = Endpoint.create(new WSCortesServerImpl());
+        Endpoint ep_rec = Endpoint.create(new WSRecheioServerImpl());
         ep_rec.publish("http://"+host+":9718/WSRecheio");
 
         // WS Cobertura
-        Endpoint ep_cob = Endpoint.create(new WSCortesServerImpl());
+        Endpoint ep_cob = Endpoint.create(new WSCoberturaServerImpl());
         ep_cob.publish("http://"+host+":9719/WSCobertura");
 
 
