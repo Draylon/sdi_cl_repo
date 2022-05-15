@@ -27,6 +27,8 @@ public class Client {
               String newline = sc.nextLine();
               BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
               String[] word = newline.split(" ");
+              if(word.length < 2)
+                  continue;
               if (Objects.equals(word[1], "Cliente")) {
                   if(Objects.equals(word[2], cl_id))
                       client_start = true;
