@@ -9,6 +9,7 @@ import java.net.URL;
 public class WSCortesServerImpl implements WSCortesServer {
 
 	public String getCortes(String name) {
+		feitos++;
 		return "Corte " + name + " efetuado!";
 	}
 

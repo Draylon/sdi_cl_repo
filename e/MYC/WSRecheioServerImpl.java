@@ -5,7 +5,7 @@ import javax.jws.WebService;
 @WebService(endpointInterface = "MYC.WSRecheioServer")
 public class WSRecheioServerImpl implements WSRecheioServer {
 
-    private static int feitos;
+    private static int feitos=0;
 
     public int getFeitos() {
         return feitos;
