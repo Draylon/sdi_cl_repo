@@ -62,7 +62,7 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
         WSCoberturaServer svc = makeService("9719","WSCobertura",host,WSCoberturaServer.class);
         InetAddress addr = InetAddress.getLocalHost();
         String hostname = addr.getHostName();
-        svc.getCobertura(cl);
+        System.out.println(svc.getCobertura(cl));
     }
 
     @Override
@@ -71,7 +71,7 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
         WSCortesServer svc = makeService("9717","WSCortes",host,WSCortesServer.class);
         InetAddress addr = InetAddress.getLocalHost();
         String hostname = addr.getHostName();
-        svc.getCortes(cl);
+        System.out.println(svc.getCortes(cl));
     }
 
     @Override
@@ -80,7 +80,7 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
         WSPandeloServer svc = makeService("9716","WSPandelo",host,WSPandeloServer.class);
         InetAddress addr = InetAddress.getLocalHost();
         String hostname = addr.getHostName();
-        svc.getPandelo(cl);
+        System.out.println(svc.getPandelo(cl));
     }
 
     @Override
@@ -89,6 +89,6 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
         WSRecheioServer svc = makeService("9718","WSRecheio",host,WSRecheioServer.class);
         InetAddress addr = InetAddress.getLocalHost();
         String hostname = addr.getHostName();
-        svc.getRecheio(cl);
+        System.out.println(svc.getRecheio(cl));
     }
 }
