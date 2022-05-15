@@ -9,7 +9,7 @@ public class WSCoberturaServerImpl implements WSCoberturaServer {
 
 	public String getCobertura(String name) {
         feitos++;
-		return "Pandelo de " + name + " entregue!";
+		return "Cobertura de " + name + " entregue!";
 	}
 
     public int getFeitos() {

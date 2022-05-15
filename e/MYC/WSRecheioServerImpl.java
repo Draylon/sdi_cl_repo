@@ -13,7 +13,7 @@ public class WSRecheioServerImpl implements WSRecheioServer {
 
     public String getRecheio(String name) {
         feitos++;
-		return "Pandelo de " + name + " entregue!";
+		return "Recheio de " + name + " entregue!";
 	}
 
 }
