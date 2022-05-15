@@ -35,6 +35,7 @@ public class Client {
               }else if(Objects.equals(word[1], "****") || Objects.equals(word[1], "")) {
                 client_start = false;
               }else if(client_start){
+                  System.out.println(newline);
                   // word[0] servico?
                   // word[2] tipo?
                 switch (word[0]) {
