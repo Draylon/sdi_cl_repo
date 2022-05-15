@@ -73,6 +73,9 @@ public class Client {
       }
       cl_id = args[1];
 
+        InetAddress addr = InetAddress.getLocalHost();
+        String hostname = addr.getHostName(); // pc do client
+
       // ##### WS Recepcao  #####
       URL url1 = new URL("http://"+host+":9715/WSRecepcao?wsdl");
       QName qname1 = new QName("http://MYC/",
@@ -80,8 +83,7 @@ public class Client {
 
       Service recepcao = Service.create(url1, qname1);
       WSRecepcaoServer srecepcao = recepcao.getPort(WSRecepcaoServer.class);
-      InetAddress addr = InetAddress.getLocalHost();
-      String hostname = addr.getHostName();
+
       readSetup(host,srecepcao);
       srecepcao.endClient();
 
