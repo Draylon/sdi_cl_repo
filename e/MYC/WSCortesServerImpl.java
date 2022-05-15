@@ -12,7 +12,6 @@ public class WSCortesServerImpl implements WSCortesServer {
 		return "Corte " + name + " efetuado!";
 	}
 
-	@Override
 	public int getFeitos() {
 		return feitos;
 	}

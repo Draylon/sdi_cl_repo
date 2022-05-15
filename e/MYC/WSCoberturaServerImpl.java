@@ -12,7 +12,6 @@ public class WSCoberturaServerImpl implements WSCoberturaServer {
 		return "Pandelo de " + name + " entregue!";
 	}
 
-    @Override
     public int getFeitos() {
         return feitos;
     }

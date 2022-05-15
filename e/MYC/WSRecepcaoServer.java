@@ -14,16 +14,21 @@ public interface WSRecepcaoServer {
 	@WebMethod
 	public void setServer(Integer nclients);
 	//public static void setEndpoint(Endpoint myep);
+	@WebMethod
 	public int getNroClient() throws Exception;
+	@WebMethod
 	public void endClient() throws Exception;
-
+	@WebMethod
 	public void setHost(String host);
-
+	@WebMethod
 	public int getRequests();
-
+	@WebMethod
 	public void solicitaCobertura(String cl,String tipo) throws Exception;
+	@WebMethod
 	public void solicitaCorte(String cl,String tipo)throws Exception;
+	@WebMethod
 	public void solicitaPandelo(String cl,String tipo)throws Exception;
+	@WebMethod
 	public void solicitaRecheio(String cl,String tipo)throws Exception;
 
 }
