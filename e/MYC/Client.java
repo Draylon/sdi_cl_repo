@@ -19,7 +19,7 @@ public class Client {
     return Arrays.stream(word).filter(x->!x.isEmpty()).collect(Collectors.toList()).toArray(new String[0]);
   }
   static String juntar_nome(String[] word){
-      return Arrays.stream(word).skip(2).collect(Collectors.joining());
+      return Arrays.stream(word).skip(2).collect(Collectors.joining(" "));
   }
 
   static void readSetup (String host, WSRecepcaoServer srecepcao) {
@@ -61,7 +61,7 @@ public class Client {
                         break;
                     case "WS-Cortes":
                       srecepcao.solicitaCorte(juntar_nome(word));
-                      requests.put("WSCorte",requests.getOrDefault("WSCorte",0)+1);
+                      requests.put("WSCortes",requests.getOrDefault("WSCortes",0)+1);
                         break;
                 }
               }
