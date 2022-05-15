@@ -32,7 +32,7 @@ public class Client {
               if (Objects.equals(word[1], "Cliente")) {
                   if(Objects.equals(word[2], cl_id))
                       client_start = true;
-              }else if(Objects.equals(word[1], "****") || Objects.equals(word[1], "")) {
+              }else if(Objects.equals(word[1], "****") || Objects.equals(newline, "")) {
                 client_start = false;
               }else if(client_start){
                   System.out.println(newline);
