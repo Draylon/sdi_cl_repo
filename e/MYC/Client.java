@@ -30,7 +30,6 @@ public class Client {
               String newline = sc.nextLine();
               BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
               String[] word = remove_vazios(newline.split(" "));
-              System.out.println(Arrays.toString(word));
               if(word.length < 2)
                   continue;
               if (Objects.equals(word[1], "Cliente") && !client_start) {
