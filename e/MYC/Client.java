@@ -18,6 +18,9 @@ public class Client {
   static String[] remove_vazios(String[] word){
     return Arrays.stream(word).filter(x->!x.isEmpty()).collect(Collectors.toList()).toArray(new String[0]);
   }
+  static String juntar_nome(String[] word){
+      return Arrays.stream(word).skip(2).collect(Collectors.joining());
+  }
 
   static void readSetup (String host, WSRecepcaoServer srecepcao) {
       try {
@@ -45,19 +48,19 @@ public class Client {
                   // word[2] tipo?
                 switch (word[0]) {
                     case "WS-Cobertura":
-                      srecepcao.solicitaCobertura(cl_id,word[2]);
+                      srecepcao.solicitaCobertura(cl_id,juntar_nome(word));
                       requests.put("WSCobertura",requests.getOrDefault("WSCobertura",0)+1);
                         break;
                     case "WS-Pandelo":
-                      srecepcao.solicitaPandelo(cl_id,word[2]);
+                      srecepcao.solicitaPandelo(cl_id,juntar_nome(word));
                       requests.put("WSPandelo",requests.getOrDefault("WSPandelo",0)+1);
                         break;
                     case "WS-Recheio":
-                      srecepcao.solicitaRecheio(cl_id,word[2]);
+                      srecepcao.solicitaRecheio(cl_id,juntar_nome(word));
                       requests.put("WSRecheio",requests.getOrDefault("WSRecheio",0)+1);
                         break;
                     case "WS-Cortes":
-                      srecepcao.solicitaCorte(cl_id,word[2]);
+                      srecepcao.solicitaCorte(cl_id,juntar_nome(word));
                       requests.put("WSCorte",requests.getOrDefault("WSCorte",0)+1);
                         break;
                 }
