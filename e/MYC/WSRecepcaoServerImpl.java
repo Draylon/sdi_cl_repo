@@ -48,9 +48,9 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
         return requests;
     }
 
-    static <T> T makeService(String Servico, String host, Class<T> cltype) throws MalformedURLException {
+    static <T> T makeService(String port,String Servico, String host, Class<T> cltype) throws MalformedURLException {
         requests++;
-        URL url1 = new URL("http://"+host+":9875/"+Servico+"?wsdl");
+        URL url1 = new URL("http://"+host+":"+port+"/"+Servico+"?wsdl");
         QName qname1 = new QName("http://MYC/",
                 Servico+"ServerImplService");
         return Service.create(url1, qname1).getPort(cltype);
@@ -59,7 +59,7 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
     @Override
     public void solicitaCobertura(String cl,String tipo) throws Exception {
         requests++;
-        WSCoberturaServer svc = makeService("WSCobertura",host,WSCoberturaServer.class);
+        WSCoberturaServer svc = makeService("9719","WSCobertura",host,WSCoberturaServer.class);
         InetAddress addr = InetAddress.getLocalHost();
         String hostname = addr.getHostName();
         svc.getCobertura(cl);
@@ -68,7 +68,7 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
     @Override
     public void solicitaCorte(String cl,String tipo) throws Exception {
         requests++;
-        WSCortesServer svc = makeService("WSCortes",host,WSCortesServer.class);
+        WSCortesServer svc = makeService("9717","WSCortes",host,WSCortesServer.class);
         InetAddress addr = InetAddress.getLocalHost();
         String hostname = addr.getHostName();
         svc.getCortes(cl);
@@ -77,7 +77,7 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
     @Override
     public void solicitaPandelo(String cl,String tipo) throws Exception {
         requests++;
-        WSPandeloServer svc = makeService("WSPandelo",host,WSPandeloServer.class);
+        WSPandeloServer svc = makeService("9716","WSPandelo",host,WSPandeloServer.class);
         InetAddress addr = InetAddress.getLocalHost();
         String hostname = addr.getHostName();
         svc.getPandelo(cl);
@@ -86,7 +86,7 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
     @Override
     public void solicitaRecheio(String cl,String tipo) throws Exception {
         requests++;
-        WSRecheioServer svc = makeService("WSRecheio",host,WSRecheioServer.class);
+        WSRecheioServer svc = makeService("9718","WSRecheio",host,WSRecheioServer.class);
         InetAddress addr = InetAddress.getLocalHost();
         String hostname = addr.getHostName();
         svc.getRecheio(cl);

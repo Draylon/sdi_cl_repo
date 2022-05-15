@@ -13,8 +13,8 @@ import java.io.*;
 
 public class ServerPublisher {
 
-    static <T> T makeService(String Servico,String host,Class<T> cltype) throws MalformedURLException {
-        URL url1 = new URL("http://"+host+":9875/"+Servico+"?wsdl");
+    static <T> T makeService(String port,String Servico,String host,Class<T> cltype) throws MalformedURLException {
+        URL url1 = new URL("http://"+host+":"+port+"/"+Servico+"?wsdl");
         QName qname1 = new QName("http://MYC/",
                 Servico+"ServerImplService");
         return Service.create(url1, qname1).getPort(cltype);
@@ -22,11 +22,11 @@ public class ServerPublisher {
 
     static void printReport(String host) throws Exception {
 
-        WSRecepcaoServer wsRecepcaoServer = makeService("WSRecepcao",host,WSRecepcaoServer.class);
-        WSRecheioServer wsRecheioServer = makeService("WSRecheio",host,WSRecheioServer.class);
-        WSCortesServer wsCortesServer = makeService("WSCortes",host,WSCortesServer.class);
-        WSCoberturaServer wsCoberturaServer = makeService("WSCobertura",host,WSCoberturaServer.class);
-        WSPandeloServer wsPandeloServer = makeService("WSPandelo",host,WSPandeloServer.class);
+        WSRecepcaoServer wsRecepcaoServer = makeService("9715","WSRecepcao",host,WSRecepcaoServer.class);
+        WSRecheioServer wsRecheioServer = makeService("9718","WSRecheio",host,WSRecheioServer.class);
+        WSCortesServer wsCortesServer = makeService("9717","WSCortes",host,WSCortesServer.class);
+        WSCoberturaServer wsCoberturaServer = makeService("9719","WSCobertura",host,WSCoberturaServer.class);
+        WSPandeloServer wsPandeloServer = makeService("9716","WSPandelo",host,WSPandeloServer.class);
 
         System.out.println("##  Servidor  ##");
         System.out.println("Status: finalizado");
@@ -74,30 +74,30 @@ public class ServerPublisher {
 
         // WS Recepcao
         Endpoint ep = Endpoint.create(new WSRecepcaoServerImpl());
-        ep.publish("http://"+host+":9875/WSRecepcao");
+        ep.publish("http://"+host+":9715/WSRecepcao");
 
         // WS Pandelo
         Endpoint ep_pan = Endpoint.create(new WSPandeloServerImpl());
-        ep_pan.publish("http://"+host+":9876/WSPandelo");
+        ep_pan.publish("http://"+host+":9716/WSPandelo");
 
         // WS Cortes
         Endpoint ep_cor = Endpoint.create(new WSCortesServerImpl());
-        ep_cor.publish("http://"+host+":9877/WSCortes");
+        ep_cor.publish("http://"+host+":9717/WSCortes");
 
         // WS Recheio
         Endpoint ep_rec = Endpoint.create(new WSCortesServerImpl());
-        ep_rec.publish("http://"+host+":9878/WSRecheio");
+        ep_rec.publish("http://"+host+":9718/WSRecheio");
 
         // WS Cobertura
         Endpoint ep_cob = Endpoint.create(new WSCortesServerImpl());
-        ep_cob.publish("http://"+host+":9879/WSCobertura");
+        ep_cob.publish("http://"+host+":9719/WSCobertura");
 
 
         System.out.println("* All done publishing. *");
 
         try {
             // ##### WS Recepcao  #####
-            URL url1 = new URL("http://"+host+":9875/WSRecepcao?wsdl");
+            URL url1 = new URL("http://"+host+":9715/WSRecepcao?wsdl");
             QName qname1 = new QName("http://MYC/",
                     "WSRecepcaoServerImplService");
 
