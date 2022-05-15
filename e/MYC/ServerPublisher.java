@@ -22,7 +22,13 @@ public class ServerPublisher {
 
     static void printReport(String host) throws Exception {
 
-        WSRecepcaoServer wsRecepcaoServer = makeService("9715","WSRecepcao",host,WSRecepcaoServer.class);
+        URL url1 = new URL("http://"+host+":9715/WSRecepcao?wsdl");
+        QName qname1 = new QName("http://MYC/",
+                "WSRecepcaoServerImplService");
+        Service recepcao = Service.create(url1, qname1);
+        WSRecepcaoServer wsRecepcaoServer = recepcao.getPort(WSRecepcaoServer.class);
+
+
         WSRecheioServer wsRecheioServer = makeService("9718","WSRecheio",host,WSRecheioServer.class);
         WSCortesServer wsCortesServer = makeService("9717","WSCortes",host,WSCortesServer.class);
         WSCoberturaServer wsCoberturaServer = makeService("9719","WSCobertura",host,WSCoberturaServer.class);
@@ -100,7 +106,6 @@ public class ServerPublisher {
             URL url1 = new URL("http://"+host+":9715/WSRecepcao?wsdl");
             QName qname1 = new QName("http://MYC/",
                     "WSRecepcaoServerImplService");
-
             Service recepcao = Service.create(url1, qname1);
             WSRecepcaoServer srecepcao = recepcao.getPort(WSRecepcaoServer.class);
             InetAddress addr = InetAddress.getLocalHost();
