@@ -2,19 +2,20 @@ package MYC;
 
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "MYC.WSPandeloServer")
-public class WSPandeloServerImpl implements WSPandeloServer {
+@WebService(endpointInterface = "MYC.WSCoberturaServer")
+public class WSCoberturaServerImpl implements WSCoberturaServer {
 
     private static int feitos;
 
-    public int getFeitos() {
-        return feitos;
-    }
-
-    public String getPandelo(String name) {
+	public String getCobertura(String name) {
 
 		return "Pandelo de " + name + " entregue!";
 	}
+
+    @Override
+    public int getFeitos() {
+        return feitos;
+    }
 
 }
 /*System.out.println("##  Cliente ("+host+") "+name+"  ##");

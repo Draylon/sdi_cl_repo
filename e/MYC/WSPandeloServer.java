@@ -10,5 +10,8 @@ import javax.jws.soap.SOAPBinding.Style;
 public interface WSPandeloServer {
 
 	@WebMethod
-	String getPandelo(String host, String name);
+	String getPandelo(String name);
+
+	@WebMethod
+	int getFeitos();
 }

@@ -8,7 +8,7 @@ JFLAGS = -g
 .java.class:
 	$(JAVAC) $(JFLAGS) MYC\$*.java
 
-default: Client ServerPublisher WSPandeloServerImpl WSPandeloServer WSCortesServerImpl WSCortesServer WSRecepcaoServerImpl WSRecepcaoServer
+default: Client ServerPublisher WSPandeloServerImpl WSPandeloServer WSCortesServerImpl WSCortesServer WSCoberturaServerImpl WSCoberturaServer WSRecheioServerImpl WSRecheioServer WSRecepcaoServerImpl WSRecepcaoServer
 
 Client: MYC/Client.java
 	$(JAVAC) $(JFLAGS) MYC/Client.java
@@ -30,6 +30,18 @@ WSPandeloServerImpl: MYC/WSPandeloServerImpl.java
 
 WSPandeloServer: MYC/WSPandeloServer.java
 	$(JAVAC) $(JFLAGS) MYC/WSPandeloServer.java
+
+WSRecheioServerImpl: MYC/WSRecheioServerImpl.java
+	$(JAVAC) $(JFLAGS) MYC/WSRecheioServerImpl.java
+
+WSRecheioServer: MYC/WSRecheioServer.java
+	$(JAVAC) $(JFLAGS) MYC/WSRecheioServer.java
+
+WSCoberturaServerImpl: MYC/WSCoberturaServerImpl.java
+	$(JAVAC) $(JFLAGS) MYC/WSCoberturaServerImpl.java
+
+WSCoberturaServer: MYC/WSCoberturaServer.java
+	$(JAVAC) $(JFLAGS) MYC/WSCoberturaServer.java
 
 ServerPublisher: MYC/ServerPublisher.java
 	$(JAVAC) $(JFLAGS) MYC/ServerPublisher.java

@@ -7,10 +7,10 @@ import javax.jws.soap.SOAPBinding.Style;
 
 @WebService
 @SOAPBinding(style = Style.RPC)
-public interface WSCortesServer {
+public interface WSRecheioServer {
 
 	@WebMethod
-	String getCortes(String name);
+	String getRecheio(String name);
 
 	@WebMethod
 	int getFeitos();

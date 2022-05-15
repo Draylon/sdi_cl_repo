@@ -2,8 +2,8 @@ package MYC;
 
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "MYC.WSPandeloServer")
-public class WSPandeloServerImpl implements WSPandeloServer {
+@WebService(endpointInterface = "MYC.WSRecheioServer")
+public class WSRecheioServerImpl implements WSRecheioServer {
 
     private static int feitos;
 
@@ -11,12 +11,13 @@ public class WSPandeloServerImpl implements WSPandeloServer {
         return feitos;
     }
 
-    public String getPandelo(String name) {
-
+    public String getRecheio(String name) {
+        feitos++;
 		return "Pandelo de " + name + " entregue!";
 	}
 
 }
+
 /*System.out.println("##  Cliente ("+host+") "+name+"  ##");
         System.out.println("Status: Pronto");
         System.out.println("WS-Pandelo: 2");

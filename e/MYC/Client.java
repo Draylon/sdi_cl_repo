@@ -11,8 +11,57 @@ import java.io.*;
 
 public class Client {
 
-  public static void main(String[] args) {
+  static String cl_id;
+  static HashMap<String,Integer> requests = new HashMap<>();
 
+  static void readSetup (String host, WSRecepcaoServer srecepcao) {
+      try {
+          Scanner sc = new Scanner(System.in);
+
+          boolean client_start = false;
+
+          while(true) {
+              if (!sc.hasNextLine()) {
+                  break;
+              }
+              String newline = sc.nextLine();
+              BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
+              String[] word = newline.split(" ");
+              if (Objects.equals(word[1], "Clientes")) {
+                  if(Objects.equals(word[2], cl_id))
+                      client_start = true;
+              }else if(Objects.equals(word[1], "****") || Objects.equals(word[1], "")) {
+                client_start = false;
+              }else if(client_start){
+                  // word[0] servico?
+                  // word[2] tipo?
+                switch (word[0]) {
+                  case "WS-Cobertura" -> {
+                      srecepcao.solicitaCobertura(cl_id,word[2]);
+                      requests.put("WS-Cobertura",requests.getOrDefault("WS-Cobertura",0)+1);
+                  }
+                  case "WS-Pandelo" -> {
+                      srecepcao.solicitaPandelo(cl_id,word[2]);
+                      requests.put("WS-Pandelo",requests.getOrDefault("WS-Pandelo",0)+1);
+                  }
+                  case "WS-Recheio" -> {
+                      srecepcao.solicitaRecheio(cl_id,word[2]);
+                      requests.put("WS-Recheio",requests.getOrDefault("WS-Recheio",0)+1);
+                  }
+                  case "WS-Corte" -> {
+                      srecepcao.solicitaCorte(cl_id,word[2]);
+                      requests.put("WS-Corte",requests.getOrDefault("WS-Corte",0)+1);
+                  }
+                }
+              }
+          }
+          sc.close();
+      } catch (Exception e) {
+          e.printStackTrace();
+      }
+  }
+
+  public static void main(String[] args) {
     try {
 
       String host = (args.length < 1) ? "localhost" : args[0];
@@ -20,6 +69,7 @@ public class Client {
         System.out.println("ERROR: java MYC.Client <host_server> <name>");
         System.exit(1);
       }
+      cl_id = args[2];
 
       // ##### WS Recepcao  #####
       URL url1 = new URL("http://"+host+":9875/WSRecepcao?wsdl");
@@ -31,14 +81,16 @@ public class Client {
       String name1 = args[1];
       InetAddress addr = InetAddress.getLocalHost();
       String hostname = addr.getHostName();
+      srecepcao.setHost(name1);
+      readSetup(host,srecepcao);
       srecepcao.endClient();
 
       System.out.println("##  Cliente ("+hostname+") "+name1+"  ##");
       System.out.println("Status: Pronto");
-      System.out.println("WS-Pandelo: 2");
-      System.out.println("WS-Cobertura: 1");
-      System.out.println("WS-Recheio: 4");
-      System.out.println("WS-Cortes:2");
+      System.out.println("WS-Pandelo: "+requests.getOrDefault("WSPandelo",0));
+      System.out.println("WS-Cobertura: "+requests.getOrDefault("WSCobertura",0));
+      System.out.println("WS-Recheio: "+requests.getOrDefault("WSRecheio",0));
+      System.out.println("WS-Cortes: "+requests.getOrDefault("WSCortes",0));
       System.out.println("###########");
 
     } catch (Exception e) {
