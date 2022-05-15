@@ -35,27 +35,22 @@ public class Client {
               }else if(Objects.equals(word[1], "****") || Objects.equals(newline, "")) {
                 client_start = false;
               }else if(client_start){
-                  System.out.println(newline);
                   // word[0] servico?
                   // word[2] tipo?
                 switch (word[0]) {
                     case "WS-Cobertura":
-                        System.out.println("cobertura foi");
                       srecepcao.solicitaCobertura(cl_id,word[2]);
                       requests.put("WSCobertura",requests.getOrDefault("WSCobertura",0)+1);
                         break;
                     case "WS-Pandelo":
-                        System.out.println("pandelo foi");
                       srecepcao.solicitaPandelo(cl_id,word[2]);
                       requests.put("WSPandelo",requests.getOrDefault("WSPandelo",0)+1);
                         break;
                     case "WS-Recheio":
-                        System.out.println("recheio foi");
                       srecepcao.solicitaRecheio(cl_id,word[2]);
                       requests.put("WSRecheio",requests.getOrDefault("WSRecheio",0)+1);
                         break;
                     case "WS-Cortes":
-                        System.out.println("cortes foi");
                       srecepcao.solicitaCorte(cl_id,word[2]);
                       requests.put("WSCorte",requests.getOrDefault("WSCorte",0)+1);
                         break;
