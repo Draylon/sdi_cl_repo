@@ -27,12 +27,16 @@ public class Client {
               String newline = sc.nextLine();
               BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
               String[] word = newline.split(" ");
+              System.out.println(Arrays.toString(word));
               if(word.length < 2)
                   continue;
               if (Objects.equals(word[1], "Cliente")) {
-                  if(Objects.equals(word[2], cl_id))
+                  System.out.println(word[2]+" == "+cl_id+" : "+Objects.equals(word[2], cl_id));
+                  if(Objects.equals(word[2], cl_id)) {
                       client_start = true;
-              }else if(Objects.equals(word[1], "****") || Objects.equals(newline, "")) {
+                  }
+              }else if( Objects.equals(word[1], "****") ) {
+                  System.out.println(word[1]+" == **** : "+Objects.equals(word[1], cl_id));
                 client_start = false;
               }else if(client_start){
                   // word[0] servico?

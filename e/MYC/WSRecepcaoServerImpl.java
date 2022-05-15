@@ -60,8 +60,6 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
     public void solicitaCobertura(String cl,String tipo) throws Exception {
         requests++;
         WSCoberturaServer svc = makeService("9719","WSCobertura",host,WSCoberturaServer.class);
-        InetAddress addr = InetAddress.getLocalHost();
-        String hostname = addr.getHostName();
         System.out.println(svc.getCobertura(cl));
     }
 
@@ -69,8 +67,6 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
     public void solicitaCorte(String cl,String tipo) throws Exception {
         requests++;
         WSCortesServer svc = makeService("9717","WSCortes",host,WSCortesServer.class);
-        InetAddress addr = InetAddress.getLocalHost();
-        String hostname = addr.getHostName();
         System.out.println(svc.getCortes(cl));
     }
 
@@ -78,8 +74,6 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
     public void solicitaPandelo(String cl,String tipo) throws Exception {
         requests++;
         WSPandeloServer svc = makeService("9716","WSPandelo",host,WSPandeloServer.class);
-        InetAddress addr = InetAddress.getLocalHost();
-        String hostname = addr.getHostName();
         System.out.println(svc.getPandelo(cl));
     }
 
@@ -87,8 +81,6 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
     public void solicitaRecheio(String cl,String tipo) throws Exception {
         requests++;
         WSRecheioServer svc = makeService("9718","WSRecheio",host,WSRecheioServer.class);
-        InetAddress addr = InetAddress.getLocalHost();
-        String hostname = addr.getHostName();
         System.out.println(svc.getRecheio(cl));
     }
 }
