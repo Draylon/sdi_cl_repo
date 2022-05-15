@@ -60,27 +60,27 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
     public void solicitaCobertura(String cl,String tipo) throws Exception {
         requests++;
         WSCoberturaServer svc = makeService("9719","WSCobertura",host,WSCoberturaServer.class);
-        System.out.println(svc.getCobertura(cl));
+        System.out.println(svc.getCobertura(tipo));
     }
 
     @Override
     public void solicitaCorte(String cl,String tipo) throws Exception {
         requests++;
         WSCortesServer svc = makeService("9717","WSCortes",host,WSCortesServer.class);
-        System.out.println(svc.getCortes(cl));
+        System.out.println(svc.getCortes(tipo));
     }
 
     @Override
     public void solicitaPandelo(String cl,String tipo) throws Exception {
         requests++;
         WSPandeloServer svc = makeService("9716","WSPandelo",host,WSPandeloServer.class);
-        System.out.println(svc.getPandelo(cl));
+        System.out.println(svc.getPandelo(tipo));
     }
 
     @Override
     public void solicitaRecheio(String cl,String tipo) throws Exception {
         requests++;
         WSRecheioServer svc = makeService("9718","WSRecheio",host,WSRecheioServer.class);
-        System.out.println(svc.getRecheio(cl));
+        System.out.println(svc.getRecheio(tipo));
     }
 }
