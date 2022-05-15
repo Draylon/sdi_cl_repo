@@ -105,6 +105,7 @@ public class ServerPublisher {
             WSRecepcaoServer srecepcao = recepcao.getPort(WSRecepcaoServer.class);
             InetAddress addr = InetAddress.getLocalHost();
             String hostname = addr.getHostName();
+            srecepcao.setHost(host);
             readSetup(host, srecepcao);
             Boolean flag = true;
             while (flag) { // Pooling aguardando clientes

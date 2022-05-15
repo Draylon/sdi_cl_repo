@@ -82,7 +82,6 @@ public class Client {
       WSRecepcaoServer srecepcao = recepcao.getPort(WSRecepcaoServer.class);
       InetAddress addr = InetAddress.getLocalHost();
       String hostname = addr.getHostName();
-      srecepcao.setHost(cl_id);
       readSetup(host,srecepcao);
       srecepcao.endClient();
 
