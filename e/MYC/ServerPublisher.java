@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class ServerPublisher {
 
     static String[] remove_vazios(String[] word){
-        return Arrays.stream(word).filter(String::isEmpty).collect(Collectors.toList()).toArray(new String[0]);
+        return Arrays.stream(word).filter(x->!x.isEmpty()).collect(Collectors.toList()).toArray(new String[0]);
     }
 
     static <T> T makeService(String port,String Servico,String host,Class<T> cltype) throws MalformedURLException {
