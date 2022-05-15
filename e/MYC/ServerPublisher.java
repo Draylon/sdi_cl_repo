@@ -55,6 +55,7 @@ public class ServerPublisher {
                 String newline = sc.nextLine();
                 BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
                 String[] word = remove_vazios(newline.split(" "));
+                if(word.length<1) continue;
                 System.out.println(Arrays.toString(word));
                 switch (word[0]) {
                     case "NClientes":
