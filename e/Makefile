@@ -48,3 +48,27 @@ ServerPublisher: MYC/ServerPublisher.java
 
 clean:
 	rm -f MYC/*.class
+
+build2:
+	git pull origin master
+	#!/bin/bash
+    nro_proc=`grep Nro_clientes ambiente.in | cut -d " " -f 2`
+    make clean > /dev/null
+    make > /dev/null
+    java MYC.ServerPublisher ens1 < stdin0 &
+    for i in `seq 1 $nro_proc`
+    do
+        sleep 1
+        pos=`expr $i + 1`;
+        nom_maquinas=`grep Maquinas ambiente.in | cut -d " " -f $pos`
+        px=`grep Processos ambiente.in | cut -d " " -f $pos`
+        #scp *.class $nom_maquinas: > /dev/null
+        scp -r MYC $nom_maquinas: > /dev/null
+        scp stdin0 $nom_maquinas: > /dev/null
+        #echo 'ssh' $nom_maquinas 'java MYC.'$px ens1 $i
+        ssh $nom_maquinas java MYC.$px ens1 $i < stdin0
+        #java $px ens1 $i < stdin0
+        #echo 'ssh' $nom_maquinas 'rm -f' $px'.class'
+        ssh $nom_maquinas rm -rf MYC >/dev/null
+        ssh $nom_maquinas rm -f stdin0 >/dev/null
+    done
