@@ -49,7 +49,6 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
     }
 
     static <T> T makeService(String port,String Servico, String host, Class<T> cltype) throws MalformedURLException {
-        requests++;
         URL url1 = new URL("http://"+host+":"+port+"/"+Servico+"?wsdl");
         QName qname1 = new QName("http://MYC/",
                 Servico+"ServerImplService");
