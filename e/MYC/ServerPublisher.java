@@ -10,8 +10,13 @@ import javax.xml.ws.Service;
 import javax.xml.ws.Endpoint;
 import java.util.*;
 import java.io.*;
+import java.util.stream.Collectors;
 
 public class ServerPublisher {
+
+    static String[] remove_vazios(String[] word){
+        return Arrays.stream(word).filter(String::isEmpty).collect(Collectors.toList()).toArray(new String[0]);
+    }
 
     static <T> T makeService(String port,String Servico,String host,Class<T> cltype) throws MalformedURLException {
         URL url1 = new URL("http://"+host+":"+port+"/"+Servico+"?wsdl");
@@ -49,7 +54,7 @@ public class ServerPublisher {
                 }
                 String newline = sc.nextLine();
                 BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
-                String[] word = newline.split(" ");
+                String[] word = remove_vazios(newline.split(" "));
                 switch (word[0]) {
                     case "NClientes":
                         srecepcao.setServer(Integer.parseInt(word[2]));

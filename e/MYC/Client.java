@@ -7,6 +7,7 @@ import javax.xml.ws.Service;
 import javax.xml.ws.Endpoint;
 import java.util.*;
 import java.io.*;
+import java.util.stream.Collectors;
 
 
 public class Client {
@@ -14,19 +15,21 @@ public class Client {
   static String cl_id;
   static HashMap<String,Integer> requests = new HashMap<>();
 
+  static String[] remove_vazios(String[] word){
+    return Arrays.stream(word).filter(String::isEmpty).collect(Collectors.toList()).toArray(new String[0]);
+  }
+
   static void readSetup (String host, WSRecepcaoServer srecepcao) {
       try {
           Scanner sc = new Scanner(System.in);
-
           boolean client_start = false;
-
           while(true) {
               if (!sc.hasNextLine()) {
                   break;
               }
               String newline = sc.nextLine();
               BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
-              String[] word = newline.split(" ");
+              String[] word = remove_vazios(newline.split(" "));
               System.out.println(Arrays.toString(word));
               if(word.length < 2)
                   continue;
