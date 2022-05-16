@@ -16,6 +16,7 @@ public interface WSRecepcaoServer {
 	//public static void setEndpoint(Endpoint myep);
 	@WebMethod
 	public int getNroClient() throws Exception;
+	public int getNroClient2() throws Exception;
 	@WebMethod
 	public void endClient() throws Exception;
 	@WebMethod

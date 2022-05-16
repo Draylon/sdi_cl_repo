@@ -35,7 +35,7 @@ public class ServerPublisher {
 
         System.out.println("##  Servidor  ##");
         System.out.println("Status: finalizado");
-        System.out.println("Nro_clientes_atendidos: "+wsRecepcaoServer.getNroClient());
+        System.out.println("Nro_clientes_atendidos: "+wsRecepcaoServer.getNroClient2());
         System.out.println("WS-Pandelo (ens1): "+wsPandeloServer.getFeitos());
         System.out.println("WS-Cobertura (ens1): "+wsCoberturaServer.getFeitos());
         System.out.println("WS-Recheio (ens1): "+wsRecheioServer.getFeitos());

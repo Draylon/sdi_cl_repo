@@ -13,6 +13,7 @@ import java.io.*;
 @WebService(endpointInterface = "MYC.WSRecepcaoServer")
 public class WSRecepcaoServerImpl implements WSRecepcaoServer {
 
+    private static int NClientes2;
     private static int NClientes;
     private static String host;
 
@@ -27,10 +28,13 @@ public class WSRecepcaoServerImpl implements WSRecepcaoServer {
 
     public int getNroClient() throws Exception {
         return(NClientes);
+    }public int getNroClient2() throws Exception {
+        return(NClientes2);
     }
 
     public static void setNroClient(int nclients) throws Exception {
         NClientes = nclients;
+        NClientes2 = nclients;
     }
 
     public void setServer(Integer nclients) {
