@@ -20,4 +20,6 @@ do
     #echo 'ssh' $nom_maquinas 'rm -f' $px'.class'
     ssh $nom_maquinas rm -rf MYC >/dev/null
     ssh $nom_maquinas rm -f stdin0 >/dev/null
+    sleep 1
 done
+sleep 1
