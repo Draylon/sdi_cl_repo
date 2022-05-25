@@ -92,7 +92,7 @@ public class Main {
                 }
             }
         } catch(Exception e) {
-            System.err.println(e);
+            System.err.println("error: "+e);
             return;
         }
     }
