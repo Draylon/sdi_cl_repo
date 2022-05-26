@@ -114,9 +114,9 @@ public class Main {
                 ffw.write("");
 
                 clock_map.forEach( (x,y) -> {
-                    System.out.print("Processo "+x+": ");
+                    System.out.println("Processo "+x+":");
                     try {
-                        ffw.append("Processo "+x+": \n");
+                        ffw.append("Processo "+x+":\n");
                     } catch (IOException e) {e.printStackTrace();}
 
                     y.stream().forEach( (z) -> {
