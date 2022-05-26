@@ -1,13 +1,13 @@
+send 0 1 m0
+local 2
+local 0
 send 1 2 m1
+send 3 1 m2
 local 3
+local 0
+send 2 3 m3
 local 1
-send 2 3 m2
-send 4 2 m3
-local 4
-local 1
-send 3 4 m4
+send 2 0 m5
 local 2
-send 3 1 m5
+local 1
 local 3
-local 2
-local 4
