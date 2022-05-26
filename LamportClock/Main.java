@@ -74,7 +74,7 @@ public class Main {
 
                         if(!clock_map.containsKey((int)firstProcessId))
                             clock_map.put((int) firstProcessId,new ArrayList<>());
-                        clock_map.get(firstProcessId).add("Send from "+firstProcessId+" to "+secondProcessId+" message "+messageContent+" at "+clocks[clockArrayId].getNanoTime());
+                        clock_map.get((int)firstProcessId).add("Send from "+firstProcessId+" to "+secondProcessId+" message "+messageContent+" at "+clocks[clockArrayId].getNanoTime());
 
                         break;
 
@@ -89,7 +89,7 @@ public class Main {
 
                         if(!clock_map.containsKey((int)firstProcessId))
                             clock_map.put((int) firstProcessId,new ArrayList<>());
-                        clock_map.get(firstProcessId).add("local at "+firstProcessId+" message "+messageContent+" at "+clocks[clockArrayId].getNanoTime());
+                        clock_map.get((int)firstProcessId).add("local at "+firstProcessId+" message "+messageContent+" at "+clocks[clockArrayId].getNanoTime());
 
                         break;
 
@@ -101,7 +101,7 @@ public class Main {
 
                         if(!clock_map.containsKey((int)firstProcessId))
                             clock_map.put((int) firstProcessId,new ArrayList<>());
-                        clock_map.get(firstProcessId).add("request from "+firstProcessId+" at "+clocks[clockArrayId].getNanoTime());
+                        clock_map.get((int)firstProcessId).add("request from "+firstProcessId+" at "+clocks[clockArrayId].getNanoTime());
 
 
                         break;
