@@ -1,10 +1,6 @@
+import java.io.*;
 import java.net.InetAddress;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -112,12 +108,31 @@ public class Main {
                 }
             }
             //printzão
-            clock_map.forEach( (x,y) -> {
-                System.out.print("Processo "+x+": ");
-                y.stream().forEach( (z) -> {
-                    System.out.println("    "+z);
+            File ff = new File("output.out");
+            try {
+                FileWriter ffw = new FileWriter(ff);
+                ffw.write("");
+
+                clock_map.forEach( (x,y) -> {
+                    System.out.print("Processo "+x+": ");
+                    try {
+                        ffw.append("Processo "+x+": ");
+                    } catch (IOException e) {e.printStackTrace();}
+
+                    y.stream().forEach( (z) -> {
+                        System.out.println("    "+z);
+                        try {
+                            ffw.append("    "+z);
+                        } catch (IOException e) {e.printStackTrace();}
+                    });
                 });
-            });
+
+                ffw.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         } catch(Exception e) {
             System.err.println("error: "+e);
             e.printStackTrace();
