@@ -133,6 +133,8 @@ public class Main {
                 e.printStackTrace();
             }
 
+            Arrays.stream(clocks).forEach(Thread::interrupt);
+
         } catch(Exception e) {
             System.err.println("error: "+e);
             e.printStackTrace();
