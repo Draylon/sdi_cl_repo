@@ -116,13 +116,13 @@ public class Main {
                 clock_map.forEach( (x,y) -> {
                     System.out.print("Processo "+x+": ");
                     try {
-                        ffw.append("Processo "+x+": ");
+                        ffw.append("Processo "+x+": \n");
                     } catch (IOException e) {e.printStackTrace();}
 
                     y.stream().forEach( (z) -> {
                         System.out.println("    "+z);
                         try {
-                            ffw.append("    "+z);
+                            ffw.append("    "+z+"\n");
                         } catch (IOException e) {e.printStackTrace();}
                     });
                 });
