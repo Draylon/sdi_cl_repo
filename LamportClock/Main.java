@@ -36,7 +36,7 @@ public class Main {
             while (true) {
                 input = in.readLine();
                 if (input.equals("exit"))
-                    return;
+                    break;
 
                 /**
                  * A message format is of the following:
