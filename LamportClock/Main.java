@@ -135,6 +135,8 @@ public class Main {
 
             Arrays.stream(clocks).forEach(Thread::interrupt);
 
+            System.exit(0);
+
         } catch(Exception e) {
             System.err.println("error: "+e);
             e.printStackTrace();
