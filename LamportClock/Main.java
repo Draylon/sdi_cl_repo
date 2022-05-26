@@ -111,19 +111,17 @@ public class Main {
 
                 }
             }
+            //printzão
+            clock_map.forEach( (x,y) -> {
+                System.out.print("Processo "+x+": ");
+                y.stream().forEach( (z) -> {
+                    System.out.println("    "+z);
+                });
+            });
         } catch(Exception e) {
             System.err.println("error: "+e);
             return;
         }
-
-        //printzão
-        clock_map.forEach( (x,y) -> {
-            System.out.print("Processo "+x+": ");
-            y.stream().forEach( (z) -> {
-                System.out.println("    "+z);
-            });
-        });
-
     }
 
 }
