@@ -1,12 +1,16 @@
 import java.net.InetAddress;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        HashMap<Integer, ArrayList<String>> clock_map = new HashMap<>();
 
         if (args.length == 0) {
             System.out.println("Usage: java Main (number of processses) [filename of commands]");
@@ -67,6 +71,11 @@ public class Main {
 
                         Event e = new Event(1, firstProcessId, secondProcessId, messageContent);
                         clocks[clockArrayId].updateTime(e);
+
+                        if(!clock_map.containsKey((int)firstProcessId))
+                            clock_map.put((int) firstProcessId,new ArrayList<>());
+                        clock_map.get(firstProcessId).add("Send from "+firstProcessId+" to "+secondProcessId+" message "+messageContent+" at "+clocks[clockArrayId].getNanoTime());
+
                         break;
 
                     case "LOCAL":
@@ -77,6 +86,11 @@ public class Main {
 
                         e = new Event(0, firstProcessId, secondProcessId, messageContent);
                         clocks[clockArrayId].updateTime(e);
+
+                        if(!clock_map.containsKey((int)firstProcessId))
+                            clock_map.put((int) firstProcessId,new ArrayList<>());
+                        clock_map.get(firstProcessId).add("local at "+firstProcessId+" message "+messageContent+" at "+clocks[clockArrayId].getNanoTime());
+
                         break;
 
                     case "REQUEST":
@@ -84,6 +98,12 @@ public class Main {
                         firstProcessId = clocks[clockArrayId].getId();
                         e = new Event(3, firstProcessId, -1, "");
                         clocks[clockArrayId].updateTime(e);
+
+                        if(!clock_map.containsKey((int)firstProcessId))
+                            clock_map.put((int) firstProcessId,new ArrayList<>());
+                        clock_map.get(firstProcessId).add("request from "+firstProcessId+" at "+clocks[clockArrayId].getNanoTime());
+
+
                         break;
 
                     default:
@@ -95,6 +115,15 @@ public class Main {
             System.err.println("error: "+e);
             return;
         }
+
+        //printzão
+        clock_map.forEach( (x,y) -> {
+            System.out.print("Processo "+x+": ");
+            y.stream().forEach( (z) -> {
+                System.out.println("    "+z);
+            });
+        });
+
     }
 
 }
