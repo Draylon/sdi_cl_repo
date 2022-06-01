@@ -113,6 +113,8 @@ public class Main {
                 t.start();
             }
 
+            System.out.println("kk eae men");
+
             Arrays.stream(threads).forEach((x)->{
                 try {
                     x.join();
