@@ -34,7 +34,7 @@ public class Main {
             for(int i=0;i < n;i++){
                 final int g = i;
 
-                Thread t = new Thread(()->{
+                threads[i] = new Thread(()->{
                     int requests=0;
                     if(g%2!=0){
                         //impar
@@ -110,17 +110,12 @@ public class Main {
                         }
                     }
                 });
-                t.start();
             }
 
-            System.out.println("kk eae men");
+            Arrays.stream(threads).forEach(Thread::start);
 
             Arrays.stream(threads).forEach((x)->{
-                try {
-                    x.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                try { x.join();} catch (InterruptedException e) {e.printStackTrace();}
             });
 
             File ff = new File("output.out");
