@@ -2,7 +2,7 @@ compile:
 	javac Main.java
 
 run:
-	java Main 4 < input.in
+	java Main 4
 
 all: compile run
 
