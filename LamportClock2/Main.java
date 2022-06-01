@@ -1,6 +1,5 @@
+import java.io.*;
 import java.net.InetAddress;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
@@ -113,9 +112,43 @@ public class Main {
                 });
                 t.start();
             }
-            
-            if(1==1) throw new Exception("kkk eae men");
 
+            Arrays.stream(threads).forEach((x)->{
+                try {
+                    x.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            File ff = new File("output.out");
+            try {
+                FileWriter ffw = new FileWriter(ff);
+                ffw.write("");
+
+                clock_map.forEach( (x,y) -> {
+                    System.out.println("Processo "+x+":");
+                    try {
+                        ffw.append("Processo "+x+":\n");
+                    } catch (IOException e) {e.printStackTrace();}
+
+                    y.stream().forEach( (z) -> {
+                        System.out.println("    "+z);
+                        try {
+                            ffw.append("    "+z+"\n");
+                        } catch (IOException e) {e.printStackTrace();}
+                    });
+                });
+
+                ffw.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Arrays.stream(clocks).forEach(Thread::interrupt);
+
+            System.exit(0);
 
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
             while (true) {
