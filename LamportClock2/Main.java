@@ -29,6 +29,7 @@ public class Main {
             }
 
             Thread[] threads = new Thread[n];
+            int[] desl = new int[]{2,4,20,5};
 
             for(int i=0;i < n;i++){
                 final int g = i;
@@ -37,7 +38,8 @@ public class Main {
                     int requests=0;
                     if(g%2!=0){
                         //impar
-                        for(int k=0;k < 10;k++){
+                        for(int k=0;k < 13;k++){
+                            try { Thread.sleep(desl[g]*500);} catch (InterruptedException e) {e.printStackTrace();}
                             if(r.nextInt(2) == 0 && requests<3){
                                 // requests
                                 Event e = new Event(3, clocks[g].getId(), -1, "");
@@ -62,7 +64,8 @@ public class Main {
                         }
                     }else{
                         //par
-                        for(int k=0;k < 20;k++){
+                        for(int k=0;k < 28;k++){
+                            try { Thread.sleep(desl[g]*500);} catch (InterruptedException e) {e.printStackTrace();}
                             if(r.nextInt(2) == 0 && requests<8){
                                 // requests
                                 Event e = new Event(3, clocks[g].getId(), -1, "");
