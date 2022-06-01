@@ -1,13 +1,14 @@
 import java.net.InetAddress;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        HashMap<Integer, ArrayList<String>> clock_map = new HashMap<>();
+
         if (args.length == 0) {
             System.out.println("Usage: java Main (number of processses) [filename of commands]");
             return;
@@ -42,13 +43,20 @@ public class Main {
                             try { Thread.sleep(desl[g]*500);} catch (InterruptedException e) {e.printStackTrace();}
                             if(r.nextInt(2) == 0 && requests<3){
                                 // requests
-                                Event e = new Event(3, clocks[g].getId(), -1, "");
+                                long firstProcessId = clocks[g].getId();
+                                int secondProcessId = -1;
+                                String messageContent = "";
+                                Event e = new Event(3, firstProcessId, secondProcessId, messageContent);
                                 try {
                                     clocks[g].updateTime(e);
                                 } catch (Exception ex) {
                                     ex.printStackTrace();
                                 }
                                 requests++;
+
+                                if(!clock_map.containsKey((int)firstProcessId))
+                                    clock_map.put((int) firstProcessId,new ArrayList<>());
+                                clock_map.get((int)firstProcessId).add("request at "+firstProcessId+" message "+messageContent+" at "+clocks[g].getNanoTime());
                             }else{
                                 long firstProcessId = clocks[g].getId();
                                 int secondProcessId = 0;
@@ -60,6 +68,10 @@ public class Main {
                                 } catch (Exception ex) {
                                     ex.printStackTrace();
                                 }
+
+                                if(!clock_map.containsKey((int)firstProcessId))
+                                    clock_map.put((int) firstProcessId,new ArrayList<>());
+                                clock_map.get((int)firstProcessId).add("local at "+firstProcessId+" message "+messageContent+" at "+clocks[g].getNanoTime());
                             }
                         }
                     }else{
@@ -68,6 +80,9 @@ public class Main {
                             try { Thread.sleep(desl[g]*500);} catch (InterruptedException e) {e.printStackTrace();}
                             if(r.nextInt(2) == 0 && requests<8){
                                 // requests
+                                long firstProcessId = clocks[g].getId();
+                                int secondProcessId = -1;
+                                String messageContent = "";
                                 Event e = new Event(3, clocks[g].getId(), -1, "");
                                 try {
                                     clocks[g].updateTime(e);
@@ -75,16 +90,23 @@ public class Main {
                                     ex.printStackTrace();
                                 }
                                 requests++;
+
+                                if(!clock_map.containsKey((int)firstProcessId))
+                                    clock_map.put((int) firstProcessId,new ArrayList<>());
+                                clock_map.get((int)firstProcessId).add("request at "+firstProcessId+" message "+messageContent+" at "+clocks[g].getNanoTime());
                             }else{
-                                /*long firstProcessId = ;
+                                long firstProcessId = clocks[g].getId();
                                 int secondProcessId = 0;
-                                String messageContent = "";*/
+                                String messageContent = "";
                                 Event e = new Event(0, clocks[g].getId(), 0, "");
                                 try {
                                     clocks[g].updateTime(e);
                                 } catch (Exception ex) {
                                     ex.printStackTrace();
                                 }
+                                if(!clock_map.containsKey((int)firstProcessId))
+                                    clock_map.put((int) firstProcessId,new ArrayList<>());
+                                clock_map.get((int)firstProcessId).add("local at "+firstProcessId+" message "+messageContent+" at "+clocks[g].getNanoTime());
                             }
                         }
                     }

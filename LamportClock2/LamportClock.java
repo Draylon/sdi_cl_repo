@@ -43,6 +43,10 @@ public class LamportClock extends Thread {
         this.order = order;
     }
 
+    public long getNanoTime(){
+        return System.nanoTime();
+    }
+
     public int getOrder() {
         return this.order;
     }
