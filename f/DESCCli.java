@@ -65,13 +65,13 @@ public class DESCCli {
     // Upload "test.txt" to Dropbox
     int myname = (int)(Math.random() * 50000 + 1);
     try (InputStream in = new FileInputStream("../input/file10k.map")) {
-      FileMetadata metadata = client.files().uploadBuilder("/myprojectdb/part-"+myname+".map").uploadAndFinish(in);
+      FileMetadata metadata = client.files().uploadBuilder("/grupo_g_db/part-"+myname+".map").uploadAndFinish(in);
     }
 
     String localPath = "../tempfiles/part-"+myname+".map";
     OutputStream outputStream = new FileOutputStream(localPath);
     FileMetadata metadata = client.files()
-    .downloadBuilder("/myprojectdb/part-"+myname+".map")
+    .downloadBuilder("/grupo_g_db/part-"+myname+".map")
     .download(outputStream);
 
       // Chama o método do servidor e imprime a mensagem

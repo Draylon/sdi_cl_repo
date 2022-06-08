@@ -65,10 +65,10 @@ public class DESCMon {
       System.out.println("T001;LIDO;arqbla1.map;input;");
       System.out.println("T002;DIVIDO;arqbla1.p01;tempfiles;");
       System.out.println("T003;DIVIDO;arqbla1.p02;tempfiles;");
-      System.out.println("T004;UPLOAD;arqbla1.p02;myprojectdb;user1TOKEN;");
-      System.out.println("T005;UPLOAD;arqbla1.p01;myprojectdb;user2TOKEN;");
-      System.out.println("T006;DOWNLOAD;arqbla1.p01;myprojectdb;user1TOKEN;");
-      System.out.println("T007;DOWNLOAD;arqbla1.p02;myprojectdb;user2TOKEN;");
+      System.out.println("T004;UPLOAD;arqbla1.p02;grupo_g_db;user1TOKEN;");
+      System.out.println("T005;UPLOAD;arqbla1.p01;grupo_g_db;user2TOKEN;");
+      System.out.println("T006;DOWNLOAD;arqbla1.p01;grupo_g_db;user1TOKEN;");
+      System.out.println("T007;DOWNLOAD;arqbla1.p02;grupo_g_db;user2TOKEN;");
       System.out.println("T008;CONCAT;arqbla1.map;output;");
       System.out.println("****** End DESCMon ******");
     }
