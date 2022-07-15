@@ -1,0 +1,40 @@
+#!/bin/bash
+
+nro_proc=`grep Nro_clientes ambiente.in | cut -d " " -f 2`
+
+make clean > /dev/null
+make > /dev/null
+java DESCMon < stdin0 > Logtrans.log&
+for i in `seq 1 $nro_proc`
+do
+    sleep 1
+    pos=`expr $i + 1`;
+    nom_maquinas=`grep Maquinas ambiente.in | cut -d " " -f $pos`
+    px=`grep Processos ambiente.in | cut -d " " -f $pos`
+    #scp *.class $nom_maquinas: > /dev/null
+    cp db* FileDESC > /dev/null
+    scp -r FileDESC $nom_maquinas: > /dev/null
+    scp stdin0 $nom_maquinas: > /dev/null
+    scp DESCCli.sh $nom_maquinas: > /dev/null
+    scp servidor.in $nom_maquinas: > /dev/null
+    scp -r input/ $nom_maquinas: > /dev/null
+    #echo 'ssh' $nom_maquinas 'java MYC.'$px ens1 $i
+    ssh $nom_maquinas mkdir tempfiles
+    ssh $nom_maquinas sh DESCCli.sh
+    scp $nom_maquinas:tempfiles/* tempfiles/. > /dev/null
+
+    #java $px ens1 $i < stdin0
+    #echo 'ssh' $nom_maquinas 'rm -f' $px'.class'
+    ssh $nom_maquinas rm -rf FileDESC >/dev/null
+    ssh $nom_maquinas rm -f stdin0 >/dev/null
+    ssh $nom_maquinas rm -r DESCCli.sh >/dev/null
+    ssh $nom_maquinas rm -r servidor.in >/dev/null
+    ssh $nom_maquinas rm -r tempfiles >/dev/null
+    ssh $nom_maquinas rm -f db*.properties >/dev/null
+done
+
+tar xvzf auditor.tgz > /dev/null 2>&1
+cd _auditor_ > /dev/null 2>&1
+make > /dev/null 2>&1
+
+cd auditor ; java -cp  target/auditor-1.0-SNAPSHOT.jar:com/dropbox/core/dropbox-core-sdk/4.0.1/dropbox-core-sdk-4.0.1.jar:com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar com.wsudesc.app.Auditor `pwd` < ../../Logtrans.log; cd - > /dev/null 2>&1

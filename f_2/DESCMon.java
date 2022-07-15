@@ -11,6 +11,30 @@ import java.util.concurrent.TimeUnit;
 public class DESCMon {
   public DESCMon() {}
 
+    private static int NClientes;
+    private static String[] pecas;
+    private static Registry registry;
+
+    public static void setNroClient(int nclients) throws Exception {
+      NClientes = nclients;
+    }
+
+    public static int getNroClient() throws Exception {
+      return(NClientes);
+    }
+
+    public static void setPecas(String[] lpecas) throws Exception {
+      pecas = lpecas;
+    }
+
+    public static String getPeca(int posicao) throws Exception {
+      return(pecas[posicao+1]);
+    }
+
+    public static int getNroPecas() throws Exception {
+      return(pecas.length-2);
+    }
+
     public static void setServer () throws Exception {
       Scanner sc = new Scanner(System.in);
       while(true){
@@ -36,21 +60,22 @@ public class DESCMon {
       sc.close();
     }
 
-    static void printReport(){
+    static void printReport() {
       System.out.println("*** Log DESCMon File ***");
       System.out.println("T001;LIDO;arqbla1.map;input;");
       System.out.println("T002;DIVIDO;arqbla1.p01;tempfiles;");
       System.out.println("T003;DIVIDO;arqbla1.p02;tempfiles;");
-      System.out.println("T004;UPLOAD;arqbla1.p02;grupo_g_db;user1TOKEN;");
-      System.out.println("T005;UPLOAD;arqbla1.p01;grupo_g_db;user2TOKEN;");
-      System.out.println("T006;DOWNLOAD;arqbla1.p01;grupo_g_db;user1TOKEN;");
-      System.out.println("T007;DOWNLOAD;arqbla1.p02;grupo_g_db;user2TOKEN;");
+      System.out.println("T004;UPLOAD;arqbla1.p02;grupo_g;user1TOKEN;");
+      System.out.println("T005;UPLOAD;arqbla1.p01;grupo_g;user2TOKEN;");
+      System.out.println("T006;DOWNLOAD;arqbla1.p01;grupo_g;user1TOKEN;");
+      System.out.println("T007;DOWNLOAD;arqbla1.p02;grupo_g;user2TOKEN;");
       System.out.println("T008;CONCAT;arqbla1.map;output;");
       System.out.println("****** End DESCMon ******");
     }
 
     public static void main(String[] args) {
       try {
+
         //System.out.println("Configurando servidor ...");
         setServer();
         // Instancia o objeto servidor e a sua stub
@@ -66,12 +91,12 @@ public class DESCMon {
             BufferedReader inFromClient
                     = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
             DataOutputStream outToClient
-                    = new DataOutputStream
-                    (connectionSocket.getOutputStream());
+                    = new DataOutputStream(connectionSocket.getOutputStream());
 
             clientSentence = inFromClient.readLine();
             // System.out.println("Servidor linha("+cont+"): "+clientSentence+" ("+getNroClient()+")");
-            clientSentence = "RServidor: " + clientSentence + '\n';
+            clientSentence
+                    = "RServidor: " + clientSentence + '\n';
             outToClient.writeBytes(clientSentence);
         }
         printReport();

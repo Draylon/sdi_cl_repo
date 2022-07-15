@@ -1,0 +1,1 @@
+cd FileDESC > /dev/null ; java -cp  target/FileDESC-1.0-SNAPSHOT.jar:com/dropbox/core/dropbox-core-sdk/4.0.1/dropbox-core-sdk-4.0.1.jar:com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar com.wsudesc.app.DESCCli `pwd` ;  cd - > /dev/null
