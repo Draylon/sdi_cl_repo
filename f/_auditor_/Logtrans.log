@@ -1,0 +1,10 @@
+*** Log DESCMon File ***
+T001;LIDO;arqbla1.map;input;
+T002;DIVIDO;arqbla1.p01;tempfiles;
+T003;DIVIDO;arqbla1.p02;tempfiles;
+T004;UPLOAD;arqbla1.p02;myprojectdb;user1TOKEN;
+T005;UPLOAD;arqbla1.p01;myprojectdb;user2TOKEN;
+T006;DOWNLOAD;arqbla1.p01;myprojectdb;user1TOKEN;
+T007;DOWNLOAD;arqbla1.p02;myprojectdb;user2TOKEN;
+T008;CONCAT;arqbla1.map;output;
+****** End DESCMon ******
